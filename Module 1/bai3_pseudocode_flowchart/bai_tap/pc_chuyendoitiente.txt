@@ -1,5 +1,0 @@
-BEGIN
-  Input DLM
-  VND = DLM * 23000
-  Display VND
-END

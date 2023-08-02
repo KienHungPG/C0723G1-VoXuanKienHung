@@ -1,5 +1,0 @@
-BEGIN
-  Input M, P, C
-  A = ( M + P + C) /3
-  Display A
-END
