@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<style>
+    form{
+        background-color: #fffda9;
+    }
+    caption{
+        color: #0433ff;
+        background-color: #d4fdd6;
+        text-align: left;
+    }
+    td{
+        color: #0f29aa;
+    }
+    label{
+        color: black;
+    }
+</style>
+<body>
+    <form method="post" action="phan2.html">
+        <table>
+            <caption>ĐĂNG KÝ HỌC VIÊN</caption>
+            <tr>
+                <td>Họ và tên</td>
+                <td><input type="text" name="name" style="width: 200px"></td>
+            </tr>
+            <tr>
+                <td>Ngày sinh</td>
+                <td><input type="text" name="birthday" style="width: 110px"></td>
+            </tr>
+            <tr>
+                <td>Giới tính</td>
+                <td>
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="male">nam</label>
+                <input type="radio" name="gender" id="female" value="female">
+                <label for="female">nữ</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Địa chỉ</td>
+                <td><input type="text" name="address" style="width: 150px;height: 50px"></td>
+            </tr>
+            <tr>
+                <td>Lớp</td>
+                <td>
+                    <select>
+                        <option value=" ">-Chọn lớp-</option>
+                        <option value=" ">C0723G1</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email"style="width: 130px"></td>
+            </tr>
+            <tr>
+                <td>Số điện thoại</td>
+                <td><input type="text" name="phonenumber"style="width: 130px"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="bsubmit" value="Đăng ký"><input type="reset" name="reset" value="Nhập lại"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
