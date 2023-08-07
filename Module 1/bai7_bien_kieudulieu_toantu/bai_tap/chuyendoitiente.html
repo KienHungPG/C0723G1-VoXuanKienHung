@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th><label for="Amount">Amount</label></th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="Amount"></td>
+            <td>
+                <select id="fc">
+                    <option>VND</option>
+                    <option>USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="tc">
+                    <option>VND</option>
+                    <option>USD</option>
+                </select>
+            </td>
+            <td><button onclick="changemoney()">Convert</button></td>
+        </tr>
+    </table>
+    </br>
+    <p id="result"></p>
+
+<script>
+    function changemoney(){
+        let Amount = document.getElementById('Amount').value;
+        let FC = document.getElementById('fc').value;
+        let TC = document.getElementById('tc').value;
+        let Result;
+
+        if (FC == "VND" && TC == "USD"){
+            Result = "Result " + (Amount/23000) + "$";
+        }
+        else if (FC == "USD" && TC == "VND"){
+            Result = "Result " + (Amount*23000) +"VNĐ";
+        }
+        else if (FC == "VND" && TC == "VND"){
+            Result = "Result " + Amount + "VNĐ";
+        }
+        else {
+            Result = "Result " + Amount + "USD";
+        }
+
+        document.getElementById('result').innerHTML = Result;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+    <button type="button" onclick="showMessage()";>Click here</button>
+    <div id="messageDiv"></div>
+    <button type="button" onclick="showMessage1()";>Click here</button>
+    <br>
+    <button type="button" onclick="showMessage2()";>Click here</button>
+    <br>
+    <button type="button" onclick="showMessage3()";>Click here</button>
+
+    <script>
+        // hiển thị kết quả sử dụng hàm alert()
+        function showMessage() {
+            alert('Xin chào các bạn')
+        }
+        // hiển thị kết quả sử dụng thẻ HTML
+        function showMessage1() {
+            document.getElementById('messageDiv').innerHTML = 'Xin chào';
+        }
+        // hiển thị kết quả sử dụng hàm document.write()
+        function showMessage2() {
+            document.write('Xin chào!')
+        }
+        //hiển thị kết quả sử dụng hàm console.log()
+        function showMessage3() {
+            console.log('Xin chào everyone!')
+        }
+    </script>
+</body>
+</html>

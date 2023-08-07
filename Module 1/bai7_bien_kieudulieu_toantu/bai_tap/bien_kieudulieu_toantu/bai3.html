@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<p>Nhập bán kính hình tròn: <input type="number"  id="radius" placeholder="Circle radius" /></p>
+<button type="button" onclick="show()">Bấm để tính</button>
+<p>Diện tích hình tròn là: <span id="acreage"></span></p>
+
+    <script>
+        function show() {
+            var pi = Math.PI;
+            var r = document.getElementById('radius').value;
+            var s = r*r*pi;
+            document.getElementById('acreage').innerText = s;
+        }
+    </script>
+</body>
+</html>
