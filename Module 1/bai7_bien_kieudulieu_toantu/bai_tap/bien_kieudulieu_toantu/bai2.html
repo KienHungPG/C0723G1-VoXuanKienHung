@@ -5,10 +5,16 @@
     <title>Võ Xuân Kiến Hùng</title>
 </head>
 <body>
+<input type="number" placeholder="Độ c (Celsius)" id="cel">
+<button onclick="convert()">Nhập</button>
+<h4 id="result">Độ F= </h4>
 <script>
-    var c = parseInt(prompt('Nhập vào độ C'));
-    var f = (9*c/5) +32;
-    document.writeln('Độ F= ' +f);
+    function convert() {
+        let c = document.getElementById("cel").value;
+        let f = (9*c/5) +32
+        document.getElementById('result').innerHTML = "Độ F= " +f;
+    }
+
 </script>
 </body>
 </html>
