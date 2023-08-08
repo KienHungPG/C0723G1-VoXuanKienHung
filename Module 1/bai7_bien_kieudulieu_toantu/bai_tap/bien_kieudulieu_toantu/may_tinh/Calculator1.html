@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<input type="number" placeholder="Nhập số thứ nhất" id="n1">
+<input type="number" placeholder="Nhập số thứ hai" id="n2">
+<br>
+<button onclick="calculator('add')">Addition(+)</button>
+<button onclick="calculator('sub')">Subtraction(-)</button>
+<button onclick="calculator('mul')">Multiplication(X)</button>
+<button onclick="calculator('div')">Division(/)</button>
+<h4>Result Division:</h4>
+<p id="result"></p>
+<script>
+    function calculator(operation) {
+        let number1 = +document.getElementById("n1").value;
+        let number2 = +document.getElementById("n2").value;
+        let result;
+
+        switch (operation) {
+            case "add":
+                result = number1 + number2;
+                break;
+            case "sub":
+                result = number1 - number2;
+                break;
+            case "mul":
+                result = number1 * number2;
+                break;
+            default:
+                result = number1 / number2;
+                break;
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>

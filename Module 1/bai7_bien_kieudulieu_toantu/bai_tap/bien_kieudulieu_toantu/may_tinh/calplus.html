@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+    <link rel="stylesheet" href="calplus.css">
+</head>
+<body>
+
+<table class="button">
+       <caption><input type="text" id="input"></caption>
+    <tr>
+        <td> <button id="rad" onclick="inputValue(this.value)" value="Rad">Rad</button> </td>
+        <td> <button id="deg" onclick="inputValue(this.value)" value="Deg">Deg</button> </td>
+        <td> <button id="x!" onclick="inputValue(this.value)" value="x!">x!</button> </td>
+        <td> <button id="lparentheses" onclick="inputValue(this.value)" value="&lpar;">&lpar;</button> </td>
+        <td> <button id="rparentheses" onclick="inputValue(this.value)" value="&rpar;">&rpar;</button> </td>
+        <td> <button id="percent" onclick="inputValue(this.value)" value="%">%</button> </td>
+        <td> <button id="del" onclick="del()">AC</button> </td>
+    </tr>
+    <tr>
+        <td> <button id="inv" onclick="inputValue(this.value)" value="Inv">Inv</button> </td>
+        <td> <button id="sin" onclick="inputValue(this.value)" value="sin">sin</button> </td>
+        <td> <button id="ln" onclick="inputValue(this.value)" value="ln">ln</button> </td>
+        <td> <button id="7" onclick="inputValue(this.value)" value="7">7</button> </td>
+        <td> <button id="8" onclick="inputValue(this.value)" value="8">8</button> </td>
+        <td> <button id="9" onclick="inputValue(this.value)" value="9">9</button> </td>
+        <td> <button id="div" onclick="inputValue(this.value)" value="/">/</button> </td>
+    </tr>
+    <tr>
+        <td> <button id="pi" onclick="inputValue(this.value)" value="&pi;">&pi;</button> </td>
+        <td> <button id="cos" onclick="inputValue(this.value)" value="cos">cos</button> </td>
+        <td> <button id="log" onclick="inputValue(this.value)" value="log">log</button> </td>
+        <td> <button id="4" onclick="inputValue(this.value)" value="4">4</button> </td>
+        <td> <button id="5" onclick="inputValue(this.value)" value="5">5</button> </td>
+        <td> <button id="6" onclick="inputValue(this.value)" value="6">6</button> </td>
+        <td> <button id="mul" onclick="inputValue(this.value)" value="&ast;">X</button> </td>
+    </tr>
+    <tr>
+        <td> <button id="e" onclick="inputValue(this.value)" value="e;">e</button> </td>
+        <td> <button id="tan" onclick="inputValue(this.value)" value="tan">tan</button> </td>
+        <td> <button id="sqroot" onclick="inputValue(this.value)" value="&radic;">&radic;</button> </td>
+        <td> <button id="1" onclick="inputValue(this.value)" value="1">1</button> </td>
+        <td> <button id="2" onclick="inputValue(this.value)" value="2">2</button> </td>
+        <td> <button id="3" onclick="inputValue(this.value)" value="3">3</button> </td>
+        <td> <button id="minus" onclick="inputValue(this.value)" value="-">&minus;</button> </td>
+    </tr>
+    <tr>
+        <td> <button id="ans" onclick="inputValue(this.value)" value="Ans">Ans</button> </td>
+        <td> <button id="exp" onclick="inputValue(this.value)" value="EXP">EXP</button> </td>
+        <td> <button id="sup" onclick="inputValue(this.value)" value="">x<sup>y</sup></button> </td>
+        <td> <button id="0" onclick="inputValue(this.value)" value="0">0</button> </td>
+        <td> <button id="dot" onclick="inputValue(this.value)" value="&period;">&period;</button> </td>
+        <td> <button id="bang" onclick="tinhToan()">&equals;</button> </td>
+        <td> <button id="plus" onclick="inputValue(this.value)" value="&plus;">&plus;</button> </td>
+    </tr>
+</table>
+<script>
+    let input = document.getElementById("input");
+    function inputValue(value) {
+        input.value += value;
+    }
+    function del() {
+        input.value = "";
+    }
+    function tinhToan() {
+        input.value = eval(input.value);
+    }
+</script>
+
+</body>
+</html>
