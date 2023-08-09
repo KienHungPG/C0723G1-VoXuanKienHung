@@ -12,18 +12,18 @@
 <label for="b">Nhập số b</label>
 <input type="number" id="b"><br>
 <br>
-<button onclick="check()">Kiểm tra</button>
+<button onclick="checkNumber()">Kiểm tra</button>
 <br>
 <p id="result"></p>
 <script>
-function check() {
+function checkNumber() {
     let a = +document.getElementById('a').value;
     let b = +document.getElementById('b').value;
     if (a%b == 0){
-        result = "số a chia hết cho số b"
+        result = a +" chia hết cho " +b
     }
     else {
-        result = "số a không chia hết cho số b"
+        result = a +" không chia hết cho " +b
     }
     document.getElementById('result').innerText = result;
 }

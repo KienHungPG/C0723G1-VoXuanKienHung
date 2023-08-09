@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th><label for="amount">Độ dài</label></th>
+        <th>From</th>
+        <th>To</th>
+    </tr>
+    <tr>
+        <td><input type="number" id="amount"></td>
+        <td>
+            <select id="from">
+                <option value="Meter">Meter</option>
+                <option value="Feet">Feet</option>
+            </select>
+        </td>
+        <td>
+            <select id="to">
+                <option value="Feet">Feet</option>
+                <option value="Meter">Meter</option>
+            </select>
+        </td>
+        <td><button onclick="changeLength()">Convert</button></td>
+    </tr>
+</table>
+</br>
+<p id="result"></p>
+<script>
+    function changeLength(){
+        let amount = document.getElementById('amount').value;
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+        let result;
+
+        if (from == "Meter" && to == "Feet"){
+            result = "Result " + (amount*3.2808) + "ft";
+        }
+        else if (from == "Feet" && to == "Meter"){
+            result = "Result " + (amount/3.2808) +"m";
+        }
+        else if (from == "Feet" && to == "Feet"){
+            result = "Result " + amount + "ft";
+        }
+        else {
+            result = "Result " + amount + "m";
+        }
+
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>

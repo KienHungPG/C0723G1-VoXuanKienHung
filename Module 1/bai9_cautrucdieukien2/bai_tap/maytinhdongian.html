@@ -15,7 +15,7 @@
         height: 20px;
         margin: 9px;
     }
-    form {
+    div {
         border: 3px solid black;
         width: 11%;
         margin: 0 auto;
@@ -26,7 +26,7 @@
     <title>Võ Xuân Kiến Hùng</title>
 </head>
 <body>
-<form>
+<div>
     <table class="button">
         <caption><input type="text" id="input"></caption>
         <tr>
@@ -55,6 +55,7 @@
             <td> <button id="div" onclick="inputValue(this.value)" value="/">/</button> </td>
         </tr>
     </table>
+</div>
     <script>
         let input = document.getElementById("input");
         function inputValue(value) {
@@ -67,6 +68,5 @@
             input.value = eval(input.value);
         }
     </script>
-</form>
 </body>
 </html>

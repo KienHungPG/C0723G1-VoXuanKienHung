@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th><label for="amount">Nhiệt độ</label></th>
+        <th>From</th>
+        <th>To</th>
+    </tr>
+    <tr>
+        <td><input type="number" id="amount"></td>
+        <td>
+            <select id="from">
+                <option value="C">C</option>
+                <option value="F">F</option>
+            </select>
+        </td>
+        <td>
+            <select id="to">
+                <option value="F">F</option>
+                <option value="C">C</option>
+            </select>
+        </td>
+        <td><button onclick="changeTemperature()">Convert</button></td>
+    </tr>
+</table>
+</br>
+<p id="result"></p>
+<script>
+    function changeTemperature(){
+        let amount = document.getElementById('amount').value;
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+        let result;
+
+        if (from == "C" && to == "F"){
+            result = "Result " + (9*amount/5 +32) + "F";
+        }
+        else if (from == "F" && to == "C"){
+            result = "Result " + (amount-32)*5/9 +"C";
+        }
+        else if (from == "F" && to == "F"){
+            result = "Result " + amount + "F";
+        }
+        else {
+            result = "Result " + amount + "C";
+        }
+
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>

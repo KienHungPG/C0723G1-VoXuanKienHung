@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<script>
+    let salary = +prompt("Nhập số lương hằng tháng của bạn: ");
+    if (salary > 0 && salary <= 5000000){
+        let incomeTax = salary * 0.05;
+        alert("Thuế thu nhập cá nhân của bạn là: " +incomeTax);
+    }else if (salary < 10000000){
+        incomeTax = salary * 0.1;
+        alert("Thuế thu nhập cá nhân của bạn là: " +incomeTax);
+    }else if (salary < 20000000) {
+        incomeTax = salary * 0.15;
+        alert("Thuế thu nhập cá nhân của bạn là: " +incomeTax);
+    }else {
+        incomeTax = salary * 0.2;
+        alert("Thuế thu nhập cá nhân của bạn là: " +incomeTax);
+    }
+</script>
+</body>
+</html>
