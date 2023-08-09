@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+    <h1>Kiểm tra số ngày trong tháng</h1>
+    <label for="month"></label>
+    <input type="number" id="month" placeholder="Nhập tháng">
+    <button onclick="checkMonth()">Tính số ngày</button>
+    <p id="result"></p>
+
+<script>
+    function checkMonth(){
+        let month = +document.getElementById("month").value;
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                result = "tháng có 31 ngày";break;
+            case 2:
+                result = "tháng có 28 hoặc 29 ngày";break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                result = "tháng có 30 ngày";break;
+            default:
+                result = "tháng vừa nhập không hợp lệ";break;
+        }
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>

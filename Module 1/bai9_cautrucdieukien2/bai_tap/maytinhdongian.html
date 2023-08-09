@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    input {
+        width: 70%;
+        height: 30px;
+        margin: 5px;
+        border: 1px solid black;
+        padding: 0 20px;
+        color: #0433ff;
+    }
+    button {
+        color: #0433ff;
+        width: 20px;
+        height: 20px;
+        margin: 9px;
+    }
+    form {
+        border: 3px solid black;
+        width: 11%;
+        margin: 0 auto;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<form>
+    <table class="button">
+        <caption><input type="text" id="input"></caption>
+        <tr>
+            <td> <button id="1" onclick="inputValue(this.value)" value="1">1</button> </td>
+            <td> <button id="2" onclick="inputValue(this.value)" value="2">2</button> </td>
+            <td> <button id="3" onclick="inputValue(this.value)" value="3">3</button> </td>
+            <td> <button id="plus" onclick="inputValue(this.value)" value="&plus;">&plus;</button> </td>
+        </tr>
+        <tr>
+            <td> <button id="4" onclick="inputValue(this.value)" value="4">4</button> </td>
+            <td> <button id="5" onclick="inputValue(this.value)" value="5">5</button> </td>
+            <td> <button id="6" onclick="inputValue(this.value)" value="6">6</button> </td>
+            <td> <button id="minus" onclick="inputValue(this.value)" value="-">&minus;</button> </td>
+        </tr>
+        <tr>
+            <td> <button id="7" onclick="inputValue(this.value)" value="7">7</button> </td>
+            <td> <button id="8" onclick="inputValue(this.value)" value="8">8</button> </td>
+            <td> <button id="9" onclick="inputValue(this.value)" value="9">9</button> </td>
+            <td> <button id="mul" onclick="inputValue(this.value)" value="&ast;">X</button> </td>
+
+        </tr>
+        <tr>
+            <td> <button id="del" onclick="del()">C</button> </td>
+            <td> <button id="0" onclick="inputValue(this.value)" value="0">0</button> </td>
+            <td> <button id="bang" onclick="tinhToan()">&equals;</button> </td>
+            <td> <button id="div" onclick="inputValue(this.value)" value="/">/</button> </td>
+        </tr>
+    </table>
+    <script>
+        let input = document.getElementById("input");
+        function inputValue(value) {
+            input.value += value;
+        }
+        function del() {
+            input.value = "";
+        }
+        function tinhToan() {
+            input.value = eval(input.value);
+        }
+    </script>
+</form>
+</body>
+</html>
