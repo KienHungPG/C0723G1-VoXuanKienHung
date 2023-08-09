@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<label for="a">Nhập số a</label>
+<input type="number" id="a">
+<br>
+<br>
+<label for="b">Nhập số b</label>
+<input type="number" id="b">
+<br>
+<br>
+<label for="c">Nhập số c</label>
+<input type="number" id="c">
+<br>
+<br>
+<button onclick="check()">Kiểm tra</button>
+<br>
+<p id="result"></p>
+
+<script>
+    function check(){
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let c = +document.getElementById('c').value;
+        if (a>b && a>c){
+            result = a + " là số lớn nhất"
+        }
+        else if (b>a && b>c){
+            result = b + " là số lớn nhất"
+        }
+        else {
+            result = c + " là số lớn nhất"
+        }
+        document.getElementById('result').innerText = result;
+    }
+</script>
+</body>
+</html>

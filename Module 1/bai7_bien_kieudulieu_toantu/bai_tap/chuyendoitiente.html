@@ -7,50 +7,50 @@
 <body>
     <table>
         <tr>
-            <th><label for="Amount">Amount</label></th>
+            <th><label for="amount">Amount</label></th>
             <th>From Currency</th>
             <th>To Currency</th>
         </tr>
         <tr>
-            <td><input type="number" id="Amount"></td>
+            <td><input type="number" id="amount"></td>
             <td>
-                <select id="fc">
+                <select id="from">
                     <option>VND</option>
                     <option>USD</option>
                 </select>
             </td>
             <td>
-                <select id="tc">
+                <select id="to">
                     <option>VND</option>
                     <option>USD</option>
                 </select>
             </td>
-            <td><button onclick="changemoney()">Convert</button></td>
+            <td><button onclick="changeMoney()">Convert</button></td>
         </tr>
     </table>
     </br>
     <p id="result"></p>
 <script>
-    function changemoney(){
-        let Amount = document.getElementById('Amount').value;
-        let FC = document.getElementById('fc').value;
-        let TC = document.getElementById('tc').value;
-        let Result;
+    function changeMoney(){
+        let amount = document.getElementById('amount').value;
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+        let result;
 
-        if (FC == "VND" && TC == "USD"){
-            Result = "Result " + (Amount/23000) + "$";
+        if (from == "VND" && to == "USD"){
+            result = "Result " + (amount/23000) + "$";
         }
-        else if (FC == "USD" && TC == "VND"){
-            Result = "Result " + (Amount*23000) +"VNĐ";
+        else if (from == "USD" && to == "VND"){
+            result = "Result " + (amount*23000) +"VNĐ";
         }
-        else if (FC == "VND" && TC == "VND"){
-            Result = "Result " + Amount + "VNĐ";
+        else if (from == "VND" && to == "VND"){
+            result = "Result " + amount + "VNĐ";
         }
         else {
-            Result = "Result " + Amount + "USD";
+            result = "Result " + amount + "USD";
         }
 
-        document.getElementById('result').innerHTML = Result;
+        document.getElementById('result').innerHTML = result;
     }
 </script>
 </body>

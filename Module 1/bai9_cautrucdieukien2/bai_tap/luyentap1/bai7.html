@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<h1>Tính cước điện thoại</h1>
+<label for="minute"></label>
+<input type="number" id="minute" placeholder="Nhập số phút gọi điện trong tháng">
+<button onclick="checkMoney()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+    function checkMoney(){
+        let minute = document.getElementById('minute').value;
+        let fare;
+        if (minute < 1000) {
+            fare = minute * 400;
+            result = "Tổng số cước bạn phải trả là: " + fare + " VNĐ";
+        }
+        else if (minute < 2000){
+            fare = minute * 350;
+            result = "Tổng số cước bạn phải trả là: " + fare + " VNĐ";
+        }
+        else {
+            fare = minute * 320;
+            result = "Tổng số cước bạn phải trả là: " + fare + " VNĐ";
+        }
+        document.getElementById('result').innerText = result;
+    }
+</script>
+</body>
+</html>

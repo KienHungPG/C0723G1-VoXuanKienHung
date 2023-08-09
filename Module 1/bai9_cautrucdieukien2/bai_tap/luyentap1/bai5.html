@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<label for="test">Nhập điểm bài kiểm tra</label>
+<input type="number" id="test">
+<br>
+<br>
+<label for="midterm">Nhập điểm thi giữa kì</label>
+<input type="number" id="midterm">
+<br>
+<br>
+<label for="final">Nhập điểm thi cuối kì</label>
+<input type="number" id="final">
+<br>
+<br>
+<button onclick="checkScore()">Kiểm tra</button>
+<br>
+<p id="result"></p>
+
+<script>
+    function checkScore(){
+        let diemKT = +document.getElementById('test').value;
+        let diemMid = +document.getElementById('midterm').value;
+        let diemFinal = +document.getElementById('final').value;
+        let diemTB;
+        diemTB  = (diemKT + diemMid + diemFinal)/3;
+
+        if (diemTB >= 8){
+            result = "Đạt loại Giỏi"
+        }
+        else if (diemTB >= 6.5){
+            result = "Đạt loại Khá"
+        }
+        else if (diemTB >= 5){
+            result = "Đạt loại Trung bình"
+        }
+        else {
+            result = "Đạt loại Yếu"
+        }
+        document.getElementById('result').innerText = result;
+    }
+
+</script>
+</body>
+</html>

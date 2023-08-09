@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<h1>Tính hoa hồng theo doanh số</h1>
+<label for="sale"></label>
+<input type="number" id="sale" placeholder="Nhập tổng số doanh thu">
+<button onclick="checkMoney()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+    function checkMoney() {
+        let sale = document.getElementById('sale').value;
+        let commission ;
+        if (sale >= 2000){
+            commission = sale * 0.1;
+            result ="Tiền hoa hồng của bạn là: " + commission + "$"
+        }
+        else if (sale >= 1000){
+            commission = sale * 0.05;
+            result ="Tiền hoa hồng của bạn là: " + commission + "$"
+        }
+        else {
+            commission = sale * 0.03;
+            result ="Tiền hoa hồng của bạn là: " + commission + "$"
+        }
+        document.getElementById('result').innerText = result;
+    }
+</script>
+</body>
+</html>
