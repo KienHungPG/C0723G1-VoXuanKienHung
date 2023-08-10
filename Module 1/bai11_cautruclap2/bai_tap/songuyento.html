@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<script>
+    const lowerNumber = parseInt(prompt('Nhập số nhỏ nhất: '));
+    const higherNumber = parseInt(prompt('Nhập số lớn nhất: '));
+    document.write(`Các số nguyên tố giữa ${lowerNumber} và ${higherNumber} là:` +"<br>");
+    for (let i = lowerNumber; i <= higherNumber; i++) {
+        let count = 0;
+        for (let j = 2; j < i; j++) {
+            if (i % j == 0) {
+                count = 1;
+                break;
+            }
+        }
+        if (i > 1 && count == 0) {
+            document.write(i + "<br>");
+        }
+    }
+</script>
+</body>
+</html>
