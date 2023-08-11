@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<script>
+        var validInput = false;
+
+        while (!validInput) {
+            var temperature = parseFloat(prompt("Nhập nhiệt độ hiện tại:"));
+
+            if (!isNaN(temperature)) {
+                validInput = true;
+
+                if (temperature > 100) {
+                    alert("Hãy giảm nhiệt độ.");
+                } else if (temperature < 20) {
+                    alert("Hãy tăng nhiệt độ.");
+                } else {
+                    alert("Nhiệt độ hiện tại là: " +temperature);
+                }
+            } else {
+                alert("Vui lòng nhập một giá trị số hợp lệ.");
+            }
+        }
+</script>
+</body>
+</html>

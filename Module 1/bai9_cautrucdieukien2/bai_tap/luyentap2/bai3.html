@@ -6,9 +6,9 @@
 </head>
 <body>
 <script>
-        var a = parseInt(prompt('Nhập vào độ dài cạnh: '));
+        var a = +prompt('Nhập vào độ dài cạnh: ');
         let s = Math.pow(a,2);
-        if (typeof(a) === typeof(0) && a > 0 ){
+        if ( a > 0 ){
             alert("diện tích hình vuông là: " +s)
         }
         else {
