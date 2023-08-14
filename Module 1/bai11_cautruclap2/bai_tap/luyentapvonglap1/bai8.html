@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<h1>Game Đoán số</h1>
+<button onclick="playGame()">PLAY</button>
+<script>
+    function playGame(){
+        let min = +prompt("Nhập số bé nhất: ");
+        let max = +prompt("Nhập số lớn nhất: ");
+        let random = Math.floor(Math.random() * (max - min + 1)) + min;
+        let turn;
+        for (turn = 0; turn < 3; turn++) {
+            let guess = +prompt("Bạn hãy đoán 1 số từ " + min + " đến " + max)
+            if (guess === random){
+                alert("Bạn đã đoán đúng!");
+                return;
+            }
+            else if (guess > random){
+                alert("Số bạn đoán lớn hơn!");
+            }
+            else {
+                alert("Số bạn đoán nhỏ hơn!")
+            }
+        }
+        alert("Bạn đã hết lượt!");
+    }
+
+</script>
+</body>
+</html>

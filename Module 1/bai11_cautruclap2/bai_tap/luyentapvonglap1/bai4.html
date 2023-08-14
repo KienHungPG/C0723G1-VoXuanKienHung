@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number;
+    do {
+         number = +prompt("Nhập n số đầu tiên trong dãy Fibonacci: ");
+        if (isNaN(number) === false && number > 5) {
+            break;
+        } else {
+            alert("Nhập n > 5!");
+        }
+    } while (true)
+
+    let f1 = 0;
+    let f2 = 1;
+    let f3;
+    for (let i = 0; i < number; i++) {
+        f3 = f1 + f2;
+        f1 = f2;
+        f2 = f3;
+        if (f3 % 5 === 0) {
+            document.write("Số đầu tiên chia hết cho 5 trong dãy "+f3);
+            break;
+        }
+    }
+</script>
+</body>
+</html>

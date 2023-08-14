@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<script>
+    let money=+prompt('Nhập số tiền gửi');
+    let percent=+prompt('Nhập % lãi suất');
+    let month=+prompt('Số tháng gửi');
+    let interest=0;
+    for (let i = 0; i < month; i++) {
+        interest=money*(percent/100);
+        money=interest+money;
+    }
+    document.write('Tổng cộng số tiền bạn nhận được là :'+ money +'VNĐ')
+</script>
+</body>
+</html>

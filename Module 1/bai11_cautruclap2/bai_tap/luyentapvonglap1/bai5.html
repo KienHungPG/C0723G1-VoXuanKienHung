@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number;
+    do {
+        number = +prompt("Nhập n số đầu tiên trong dãy Fibonacci: ");
+        if (isNaN(number) === false && number > 0) {
+            break;
+        } else {
+            alert("Nhập n là số nguyên dương!");
+        }
+    } while (true)
+
+    let f1 = 0;
+    let f2 = 1;
+    let f3;
+    let sum = 0;
+    for (let i = 0; i < number; i++) {
+        f3 = f1 + f2;
+        sum = sum +f1;
+        f1 = f2;
+        f2 = f3;
+    }
+    document.write("Tổng: "+sum);
+</script>
+</body>
+</html>

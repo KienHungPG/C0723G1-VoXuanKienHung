@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<script>
+    let text = "";
+    for (let i = 0; i < 5; i++) {
+        text += "*";
+        document.write(text + "<br/>");
+
+    }   document.write("<br/>")
+
+    for (let i = 5; i > 0; i--) {
+        document.write('<br>'+'*')
+        for (let j = 1; j < i; j++) {
+            document.write("*");
+        }
+    }
+
+    for (let i = 1; i <= 5; i++) {
+        document.write("<br>")
+        for (let j = 5; j > 0; j--) {
+            if (i < j) {
+                document.write("&nbsp;&nbsp;")
+            } else {
+                document.write("*")
+            }
+        }
+    }
+    document.write("<br>")
+
+    for (let i = 5; i > 0; i--) {
+        document.write("<br>")
+        for (let j = 5; j > 0; j--) {
+            if (i < j) {
+                document.write("&nbsp;&nbsp;")
+            } else {
+                document.write("*")
+            }
+        }
+    }
+</script>
+</body>
+</html>

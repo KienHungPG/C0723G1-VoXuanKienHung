@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("Nhập vào n số đầu tiên trong dãy Fibonacci"));
+    let f1 = 0;
+    let f2 = 1;
+    let f3;
+    for (let i = 0; i < number; i++) {
+        f3 = f1 + f2;
+        document.write(f1 + "<br>");
+        f1 = f2;
+        f2 = f3;
+    }
+</script>
+</body>
+</html>
