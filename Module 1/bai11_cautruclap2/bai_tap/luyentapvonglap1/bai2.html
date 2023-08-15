@@ -6,25 +6,17 @@
 </head>
 <body>
 <script>
-    var validInput = false;
-
-    while (!validInput) {
-        var temperature = parseFloat(prompt("Nhập nhiệt độ hiện tại:"));
-
-        if (!isNaN(temperature)) {
-            validInput = true;
-
-            if (temperature > 100) {
-                alert("Hãy giảm nhiệt độ.");
-            } else if (temperature < 20) {
-                alert("Hãy tăng nhiệt độ.");
-            } else {
-                alert("Nhiệt độ hiện tại là: " + temperature);
-            }
-        } else {
-            alert("Vui lòng nhập một giá trị số hợp lệ.");
+    let temperature = Number(prompt("Nhập vào nhiệt độ hiện tại: "))
+    while (temperature < 20 || temperature > 100) {
+        if (temperature < 20) {
+            alert("Vui lòng tăng nhiệt độ")
+            temperature = Number(prompt("Nhập vào nhiệt độ"))
+        } else if (nhietdo > 100) {
+            alert("Vui lòng giảm nhiệt độ")
+            temperature = Number(prompt("Nhập vào nhiệt độ"))
         }
     }
+    alert("Nhiệt độ bình thường")
 </script>
 </body>
 </html>

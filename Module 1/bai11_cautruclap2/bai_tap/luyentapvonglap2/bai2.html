@@ -8,16 +8,16 @@
 <script>
     let number = Number(prompt("Nhập một số để tính giai thừa"))
     let factorial = 1;
-    if(number == 0 || number == 1){
+    if (number == 0 || number == 1) {
         factorial = 1;
-    }else if(number<0){
+    } else if (number < 0) {
         alert("Error!")
-    }else{
-        for (let i=1;i<=number;i++) {
-            factorial = factorial*i
+    } else {
+        for (let i = 1; i <= number; i++) {
+            factorial = factorial * i
         }
     }
-    document.write("Giai thừa của "+number+" = "+factorial)
+    document.write("Giai thừa của " + number + " = " + factorial)
 </script>
 </body>
 </html>

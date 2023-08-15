@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Võ Xuân Kiến Hùng</title>
+</head>
+<body>
+<h1>Từ điển Anh Việt</h1>
+<label for="dictionary">Nhập từ cần tìm kiếm</label>
+<input type="text" id="dictionary">
+<button onclick="search()">Tìm kiếm</button>
+<p id="result"></p>
+
+<script>
+    function search() {
+        let english = ["dog", "cat", "banana", "apple", "book", "table", "chair", "pen"];
+        let vietnam = ["Chó", "Mèo", "Chuối", "Táo", "Sách", "Bàn học", "Ghế", "Bút"];
+        let str = document.getElementById('dictionary').value;
+        let index_english = -1;
+        let result = "";
+        for (let i = 0; i < english.length; i++) {
+            if (str === english[i]) {
+                index_english = i;
+            }
+        }
+        for (let j = 0; j < vietnam.length; j++) {
+            if (index_english === j) {
+                result = vietnam[j];
+            }
+        }
+        if (index_english === -1) {
+            document.getElementById('result').innerText = "Không tìm thấy"
+        } else {
+            document.getElementById('result').innerText = result;
+        }
+
+    }
+</script>
+</body>
+</html>
