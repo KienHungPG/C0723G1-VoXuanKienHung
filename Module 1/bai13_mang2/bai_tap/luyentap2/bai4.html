@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập vào một chuỗi: ");
+    let count ;
+    if(str==""){
+        count=0;
+    }else {
+        count=1;
+        for (let i =0;i<str.length;i++){
+            if(str[i]!==" " && str[i+1] ===" ") {
+                count++;
+            }
+        }
+    }
+    document.write("Tổng số từ trong chuỗi là: "+ count)
+
+</script>
+</body>
+</html>

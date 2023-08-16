@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let arr = new Array(prompt("Nhập vào một chuỗi"))
+    let arrFix = []
+
+    document.write("Mảng gồm ["+arr+"]<br>")
+    for (let i=0; i<arr.length ; i++){
+        for (let j=0; j<arr[i].length; j++){
+            if(arr[i][j] == "-"){
+                arr[i][j] = "_"
+                arrFix.push("_")
+            }else{
+                arrFix.push(mang[i][j])
+            }
+
+        }
+    }
+    document.write("Mảng sửa gồm ["+arrFix.join("")+"]<br>")
+</script>
+</body>
+</html>

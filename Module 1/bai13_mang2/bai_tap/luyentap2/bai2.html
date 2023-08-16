@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    do {
+        let n = +prompt("Nhập số phần tử của mảng: ");
+        if (!isNaN(n) && n > 0) {
+            for (let i = 0; i < n; i++) {
+                arr[i] = prompt("Nhập phần tử thứ " + i);
+            }
+            break;
+        } else {
+            alert("Vui lòng nhập lại!")
+        }
+    } while (true)
+    document.write("Mảng của bạn là: " + arr + "</br>" + "</br>");
+
+    let first = 0;
+    let last = arr.length - 1;
+    while (first < last) {
+        let i = arr[first];
+        arr[first] = arr[last];
+        arr[last] = i;
+        first++;
+        last--;
+    }
+    document.write("Chuỗi đảo ngược: " + arr.join().replace(/,/g, ''));
+</script>
+</body>
+</html>
