@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VKXH</title>
+</head>
+<body>
+<script>
+    let arrA = [];
+    for (let i = 0; i < 10; i++) {
+        do {
+            let number = +prompt(" Nhập phần tử thứ " + i + " mảng 1:")
+            if (isNaN(number)) {
+                alert("Vui lòng nhập số nguyên");
+            } else {
+                arrA[i] = number;
+                break;
+            }
+        } while (true)
+    }
+    document.write("Mảng A của bạn là: " + arrA + "</br>" + "</br>")
+    let arrB = [];
+    for (let j = 0; j < 10; j++) {
+        do {
+            let number2 = +prompt(" Nhập phần tử thứ " + j + " mảng 2:")
+            if (isNaN(number2)) {
+                alert("Vui lòng nhập số nguyên");
+            } else {
+                arrB[j] = number2;
+                break;
+            }
+        } while (true)
+    }
+    document.write("Mảng B của bạn là: " + arrB + "</br>" + "</br>")
+
+    // let arrC = arrA.concat(arrB);
+    let arrC = new Array(20);
+    // Sao chép phần tử từ mảng a vào mảng c
+    for (var k = 0; k < arrA.length; k++) {
+        arrC[k] = arrA[k];
+    }
+    // Sao chép phần tử từ mảng b vào mảng c
+    for (var h = 0; h < arrB.length; h++) {
+        arrC[arrA.length + h] = arrB[h];
+    }
+    // Hiển thị mảng c
+    document.write("Mảng C của bạn là: " + arrC)
+</script>
+</body>
+</html>

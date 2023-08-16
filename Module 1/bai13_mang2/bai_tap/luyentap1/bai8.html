@@ -19,18 +19,15 @@
         } while (true)
     }
     document.write("Mảng của bạn là: " + arr + "</br>" + "</br>")
-    let V = +prompt("Nhập một số nguyên V: ");
-    let count = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === V) {
-            alert(arr[i] + " is in the array");
-        } else {
-            count++;
-            if (count === arr.length) {
-                alert(V + " is not in the array");
+    for (let i = 0; i < arr.length; i++)
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] < arr[j + 1]) {
+                let x = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = x;
             }
         }
-    }
+    document.write("mảng sau khi sắp xếp là: " + arr);
 </script>
 </body>
 </html>
