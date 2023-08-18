@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let char;
+    do {
+        char = prompt("Nhập vào một ký tự bất kì: ");
+        if (char.length !== 1) {
+            alert("Vui lòng nhập 1 ký tự!!!")
+        } else {
+            break;
+        }
+    } while (true)
+    switch (char) {
+        case 'u':
+        case 'e':
+        case 'o':
+        case 'a':
+        case 'i':
+        case 'U':
+        case 'E':
+        case 'O':
+        case 'A':
+        case 'I':
+            alert("ký tự bạn nhập là nguyên âm!");
+            break;
+        case 'q':
+        case 'Q':
+        case 'w':
+        case 'W':
+        case 'r':
+        case 'R':
+        case 't':
+        case 'T':
+        case 'y':
+        case 'Y':
+        case 'p':
+        case 'P':
+        case 's':
+        case 'S':
+        case 'd':
+        case 'D':
+        case 'f':
+        case 'F':
+        case 'g':
+        case 'G':
+        case 'H':
+        case 'h':
+        case 'j':
+        case 'J':
+        case 'K':
+        case 'k':
+        case 'l':
+        case 'L':
+        case 'z':
+        case 'Z':
+        case 'x':
+        case 'X':
+        case 'c':
+        case 'C':
+        case 'v':
+        case 'V':
+        case 'b':
+        case 'B':
+        case 'n':
+        case 'N':
+        case 'm':
+        case 'M':
+            alert("Ký tự bạn nhập là phụ âm!");
+            break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            alert("Ký tự bạn nhập là số!");
+            break;
+        default:
+            alert("Ký tự bạn nhập là ký tự đặc biệt!");
+            break;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
+    let char = prompt("Nhập vào 1 ký tự bất kỳ")
+    document.write("Mảng gồm [" + arr + "]<br>")
+    let check = checkArr(char, arr)
+    if (check > 0) {
+        document.write("Có " + check + " ký tự " + char + " trong mảng")
+    } else {
+        document.write("Không có dữ liệu trong mảng")
+    }
+
+    function checkArr(char, arr) {
+        let count = 0
+        for (let i = 0; i < arr.length; i++) {
+            if (char === arr[i]) {
+                count++
+            }
+        }
+        if (count > 0) {
+            return count
+        }
+        return -1
+    }
+</script>
+</body>
+</html>

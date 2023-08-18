@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let starx = prompt("Nhập vào ngôi sao: ")
+
+    function findConstellation(starx) {
+        let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        for (let i = 0; i < star.length; i++) {
+            if (starx === star[i]) {
+                return constellation[i];
+            }
+        }
+        return "không tìm thấy";
+    }
+
+    document.write(findConstellation(starx));
+</script>
+</body>
+</html>

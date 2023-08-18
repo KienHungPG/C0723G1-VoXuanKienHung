@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let salary;
+    do {
+        salary = +prompt("Nhập vào tiền lương của bạn: ");
+        if (salary > 0 && !isNaN(salary)) {
+            break;
+        } else {
+            alert("Vui lòng nhập số dương!!!");
+        }
+    } while (true)
+    let tax;
+    if (salary <= 7000000) {
+        tax = salary * 0.05;
+    } else if (salary <= 15000000) {
+        tax = salary * 0.1;
+    } else {
+        tax = salary * 0.2;
+    }
+    let realSalary = salary - tax;
+    document.write("Số lương thực tế nhận được là: " + realSalary + " và thuế thu nhập cá nhân là " + tax);
+</script>
+</body>
+</html>

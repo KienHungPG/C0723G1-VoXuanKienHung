@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    function guess(x, y) {
+        if (x > y) {
+            return "Số thứ nhất lớn hơn số thứ hai";
+        }
+        return x + y;
+    }
+
+    let n1 = +prompt("Nhập số bất kì thứ 1: ");
+    let n2 = +prompt("Nhập số bất kì thứ 2: ");
+    alert(guess(n1, n2));
+</script>
+</body>
+</html>

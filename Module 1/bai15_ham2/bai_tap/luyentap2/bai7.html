@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let numberA = prompt("Nhập số thứ nhất");
+    let numberB = prompt("Nhập số thứ hai");
+
+    function swap(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+        return [a, b];
+    }
+
+    document.write("2 số sau khi đảo ngược là: " + swap(numberA, numberB));
+</script>
+</body>
+</html>
