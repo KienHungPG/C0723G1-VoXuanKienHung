@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(name, baterry, draft, inbox, outbox, status,) {
+            this.name = name;
+            this.baterry = baterry;
+            this.draft = draft;
+            this.inbox = inbox;
+            this.outbox = outbox;
+            this.status = status;
+        }
+
+        checkStatus() {
+            if (this.status) {
+                console.log(this.name, " Điện thoại đang bật");
+            } else {
+                console.log(this.name, " Điện thoại đang tắt");
+            }
+            this.baterry--;
+        }
+
+        turnOn() {
+            if (this.status) {
+                console.log(" Điện thoại đang bật");
+            } else {
+                this.status = true;
+                this.baterry--;
+            }
+        }
+
+        turnOff() {
+            if (this.status) {
+                console.log(" Điện thoại đang tắt");
+            } else {
+                this.status = false;
+                this.baterry--;
+            }
+        }
+        setMessageDraft(message) {
+            if (this.status) {
+                this.draft.unshift(message);
+                this.baterry--;
+            } else {
+                console.log(" Cần bật điện thoại để nhắn");
+            }
+        }
+
+        sendMessage(message, otherMobile) {
+            if (this.status) {
+                this.outbox.unshift(message);
+                otherMobile.inbox.unshift(message);
+                this.baterry--;
+            } else {
+                console.log(this.name, " Điện thoại đang tắt");
+            }
+        }
+
+        chargeMobile() {
+            this.baterry++
+        }
+    }
+
+    let nokia = new Mobile("Nokia", 100, [], [], [], true);
+    let iphone = new Mobile("Iphone", 100, [], [], [], false);
+    // nokia.turnOff();
+    nokia.turnOn();
+    nokia.checkStatus();
+    iphone.checkStatus();
+    nokia.chargeMobile();
+    iphone.chargeMobile();
+    iphone.turnOn();
+    iphone.sendMessage("Hello",nokia);
+    nokia.sendMessage("Xin chào",iphone);
+    console.log(nokia.inbox);
+    console.log(iphone.inbox);
+    console.log(" Số pin iphone ", iphone.baterry);
+    console.log(" Số pin nokia ", nokia.baterry);
+    nokia.turnOff();
+    iphone.turnOff();
+
+</script>
+</body>
+</html>

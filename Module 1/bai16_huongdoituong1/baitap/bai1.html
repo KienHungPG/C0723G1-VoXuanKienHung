@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<canvas id="MyCanvas" width="500" height="600"></canvas>
+<script>
+    class Rectangle {
+        constructor (width,height) {
+            this.width = width;
+            this.height = height;
+        }
+        getWidth() {
+            return this.width;
+        }
+        getHeight() {
+            return this.height;
+        }
+        setWidth(width) {
+            this.width = width;
+        }
+        setHeight(height) {
+            this.height = height;
+        }
+    }
+    let myRectangle = new Rectangle(600,100);
+    let width = myRectangle.getWidth();
+    let height = myRectangle.getHeight();
+    let canvas = document.getElementById("MyCanvas");
+    let ctx = canvas.getContext('2d');
+    let perimeter = (myRectangle.getWidth() +  myRectangle.getHeight()) *2
+    let acreage = myRectangle.getWidth() *  myRectangle.getHeight()
+    ctx.fillStyle='#6b27ce';
+    ctx.fillRect(10, 10, width, height)
+    myRectangle.setWidth(600);
+    myRectangle.setHeight(100);
+    document.write("Chiều rộng của hình: " + myRectangle.getWidth());
+    document.write(" | Chiều cao của hình: " + myRectangle.getHeight());
+    document.write(" | Chu vi của hình: " + perimeter);
+    document.write(" | Diện tích của hình: " + acreage);
+</script>
+</body>
+</html>

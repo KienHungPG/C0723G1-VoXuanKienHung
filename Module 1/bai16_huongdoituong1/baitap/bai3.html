@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor() {
+            this.battery = 100;
+            this.powerOn = false;
+            this.draftMessage = '';
+            this.inbox = [];
+            this.sentMessage = [];
+        }
+
+        checkOnOffStatus() {
+            return this.powerOn;
+        }
+
+        turnOn() {
+            this.powerOn = true;
+            this.battery--;
+        }
+
+        turnOff() {
+            this.powerOn = false;
+        }
+
+        chargeBattery() {
+            if (this.battery < 100) {
+                this.battery = 100;
+            }
+        }
+
+        texting(message) {
+            if (this.powerOn) {
+                this.draftMessage = message;
+                this.battery--;
+            }
+        }
+
+        receiveMessage(message) {
+            if (this.powerOn) {
+                this.inbox.push(message);
+                this.battery--;
+            }
+        }
+
+        sendMessage(message, receiver) {
+            if (this.powerOn) {
+                receiver.receiveMessage(message);
+                this.sentMessage.push(message);
+                this.battery--;
+            }
+        }
+
+        viewInbox() {
+            if (this.powerOn) {
+                return this.inbox;
+                this.battery--;
+            }
+        }
+
+        viewSentMessage() {
+            if (this.powerOn) {
+                return this.sentMessage;
+                this.battery--;
+            }
+            return [];
+        }
+    }
+
+    let nokia = new Mobile();
+    let iphone = new Mobile();
+    nokia.turnOn();
+    iphone.turnOn();
+    nokia.texting("xin chào");
+    nokia.sendMessage(nokia.draftMessage, iphone);
+    iphone.texting("Chào bạn");
+    iphone.sendMessage(iphone.draftMessage, nokia)
+    document.write("Inbox của iphone: ", iphone.viewInbox() + "<br>");
+    document.write("Inbox của nokia: ", nokia.viewInbox() + "<br>");
+    document.write("Tin nhắn đã gửi của iphone: ", iphone.viewSentMessage() + "<br>");
+</script>
+</body>
+</html>

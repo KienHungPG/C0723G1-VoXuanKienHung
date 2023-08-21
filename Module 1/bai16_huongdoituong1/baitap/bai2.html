@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+        celsiusToFahrenheit(){
+            return this.celsius*9/5 + 32;
+        }
+        celsiusToKenvin(){
+            return this.celsius + 273.15;
+        }
+    };
+    let celsius;
+    do {
+        celsius = +prompt("Nhập vào độ C: ")
+        if (isNaN(celsius)){
+            alert("Vui lòng nhập số!!!")
+        }
+        else{
+            break;
+        }
+    }while (true)
+
+    let temperature = new Temperature(celsius);
+    let celsiusToFahrenheit = temperature.celsiusToFahrenheit();
+    let celsiusToKenvin = temperature.celsiusToKenvin();
+    document.write("Nhiệt độ F: " + celsiusToFahrenheit + "<br>" + "Nhiệt độ K: " + celsiusToKenvin);
+</script>
+</body>
+</html>
