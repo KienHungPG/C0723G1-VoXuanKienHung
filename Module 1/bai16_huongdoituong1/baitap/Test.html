@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class ElectricLamp {
+        constructor(status) {
+            this.status = status;
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+    }
+
+    class SwitchButton {
+        constructor(status, lamp) {
+            this.status = status;
+            this.lamp = lamp;
+
+        }
+
+
+        connectToLamp(newLamp) {
+            return this.lamp = newLamp;
+        }
+
+        switchOff() {
+            if (this.lamp != null) {
+                this.status = false;
+                this.lamp.turnOff();
+            } else {
+                document.write("Chưa lắp bóng đèn.")
+            }
+
+        }
+
+        switchOn() {
+            if (this.lamp !== null) {
+                this.status = true;
+                this.lamp.turnOn();
+            } else {
+                document.write("Chưa lắp bóng đèn.")
+            }
+
+        }
+    }
+
+    let electricLamp1 = new ElectricLamp(false);
+    let switchButton1 = new SwitchButton(false, electricLamp1);
+
+
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+    switchButton1.switchOn()
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+    switchButton1.switchOff()
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+    switchButton1.switchOn()
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+    switchButton1.switchOff()
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+    switchButton1.switchOn()
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+    switchButton1.switchOff()
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+
+</script>
+</body>
+</html>
+</html>

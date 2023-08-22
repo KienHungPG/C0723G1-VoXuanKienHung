@@ -58,15 +58,15 @@
 
         viewInbox() {
             if (this.powerOn) {
-                return this.inbox;
                 this.battery--;
+                return this.inbox;
             }
         }
 
         viewSentMessage() {
             if (this.powerOn) {
-                return this.sentMessage;
                 this.battery--;
+                return this.sentMessage;
             }
             return [];
         }
@@ -83,6 +83,7 @@
     document.write("Inbox của iphone: ", iphone.viewInbox() + "<br>");
     document.write("Inbox của nokia: ", nokia.viewInbox() + "<br>");
     document.write("Tin nhắn đã gửi của iphone: ", iphone.viewSentMessage() + "<br>");
+    document.write(iphone.battery);
 </script>
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    class ElectricLamp {
+        constructor(status) {
+            this.status = status;
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+    }
+
+    class SwitchButton {
+        constructor(status, lamp) {
+            this.status = status;
+            this.lamp = lamp;
+        }
+
+        connectToLamp(ElectricLamp) {
+            this.lamp = ElectricLamp;
+        }
+
+        switchOff() {
+            if (this.lamp != null) {
+                this.status = false;
+                this.lamp.turnOff();
+            } else {
+                alert("Không có bóng đèn !!!");
+            }
+        }
+
+        switchOn() {
+            if (this.lamp != null) {
+                this.status = true;
+                this.lamp.turnOn();
+            } else {
+                alert("Không có bóng đèn !!!");
+            }
+        }
+    }
+
+    let electricLamp1 = new ElectricLamp(false);
+    let switchButton1 = new SwitchButton(false, electricLamp1);
+
+    switchButton1.switchOn()
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+    switchButton1.switchOff()
+    document.write("status Lamp ", switchButton1.status, "<br>");
+    document.write("status button ", electricLamp1.status, "<br>");
+</script>
+</body>
+</html>
