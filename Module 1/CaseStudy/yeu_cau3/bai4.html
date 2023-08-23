@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<style>
+    div {
+        text-align: center;
+        font-size: xx-large;
+    }
+
+    button {
+        font-size: xxx-large;
+        background-color: red;
+    }
+</style>
+<body>
+<div>
+    <h2>MENU</h2>
+    <p id="cafe">1. Cafe - 29000 VNĐ</p>
+    <p id="orange">2. Cam vắt - 39000 VNĐ</p>
+    <p id="carrot">3. Nước ép cà rốt - 39000 VNĐ</p>
+    <p id="tomato">4. Nước ép cà chua - 39000 VNĐ</p>
+    <p id="water">5. Nước lọc - 10000 VNĐ</p>
+    <p id="coconut">6. Nước dừa - 35000 VNĐ</p>
+    <!--    <p id="exit">7. Hủy gọi món</p>-->
+    <button onclick="order()">Gọi món</button>
+</div>
+
+<script>
+    function order() {
+        let water = [1, 2, 3, 4, 5, 6];
+        let price = [29000, 39000, 39000, 39000, 10000, 35000];
+        let drink;
+        let totalWater;
+        let money = 0;
+        let totalMoney = 0
+        do {
+            drink = +prompt("Nhập số thứ tự của món mà bạn muốn gọi! (nhập 7 để hủy gọi món)");
+            for (let i = 0; i < water.length; i++) {
+                if (drink === water[i]) {
+                    money = +prompt("Nhập số lượng bạn muốn gọi")
+                    money = price[i] * money;
+                    totalMoney += money;
+                    alert("Số tiền bạn phải trả là: " + totalMoney + "VNĐ");
+                }
+            }
+            if (drink === 7) {
+                let cancel = confirm("Bạn muốn hủy gọi món!!!");
+                if (cancel === true) {
+                    alert("Số tiền bạn phải trả là: " + totalMoney + "VNĐ");
+                    break;
+                } else {
+                    continue;
+                }
+            }
+            if (drink > 7 || drink < 0 || isNaN(drink)) {
+                alert("Vui lòng chọn số thứ tự trong menu!!!");
+            }
+        } while (true)
+    }
+
+</script>
+</body>
+</html>

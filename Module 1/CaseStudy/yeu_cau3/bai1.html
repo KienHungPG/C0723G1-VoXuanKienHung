@@ -9,7 +9,7 @@
     let lengthArr = +prompt("Nhập độ dài của mảng: ");
     let arr = [];
     for (let i = 0; i < lengthArr; i++) {
-        arr[i] = +prompt('Nhập giá trị của phần tử trong mảng: ');
+        arr[i] = +prompt('Nhập giá trị thứ ' + (i + 1) + ' của phần tử trong mảng: ');
     }
     let sum = 0;
     let arr2 = [];
@@ -17,8 +17,8 @@
         sum += arr[i];
         arr2.push(sum);
     }
-    document.write('Các số mới nhập vào là: '+ arr);
-    document.write('Các số mới được tạo ra là: '+ arr2);
+    document.write('Các số mới nhập vào là: ' + arr + "<br>");
+    document.write('Các số mới được tạo ra là: ' + arr2);
 </script>
 </body>
 </html>

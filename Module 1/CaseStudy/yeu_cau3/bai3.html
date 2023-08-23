@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let numerators = [];
+    let denominators = [];
+    let a = +prompt("nhập vào số lượng phân số: ");
+    for (let i = 0; i < a; i++) {
+        numerators[i] = +prompt("nhập tử số của phân số" + (i + 1));
+    }
+    for (let i = 0; i < a; i++) {
+        denominators[i] = +prompt("nhập mẫu số của phân số" + (i + 1));
+    }
+    let maxIndex = 0;
+    let maxValue = numerators[0] / denominators[0];
+    for (let i = 1; i < numerators.length; i++) {
+        let fraction = numerators[i] / denominators[i];
+        if (fraction > maxValue) {
+            maxValue = fraction;
+            maxIndex = i;
+        }
+    }
+    document.write("Phân số lớn nhất có giá trị là: " + maxValue + " tại vị trí " + maxIndex);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let arr1 = [];
+    let arr2 = [];
+    let arr3 = [];
+    let a = +prompt("nhập vào số phần tử của mảng 1: ");
+    for (let i = 0; i < a; i++) {
+        arr1[i] = +prompt("nhập phần tử thứ " + i + " của mảng: ")
+    }
+    let b = +prompt("nhập vào số phần tử của mảng 2: ");
+    for (let i = 0; i < b; i++) {
+        arr2[i] = +prompt("nhập phần tử thứ " + i + " của mảng: ")
+    }
+    for (let elementArr2 of arr2) {
+        if (!arr1.includes(elementArr2) && !arr3.includes(elementArr2)) {
+            arr3.push(elementArr2)
+        }
+    }
+    document.write("Mảng 1:" + arr1 + "<br>")
+    document.write("Mảng 2:" + arr2 + "<br>")
+    document.write("Mảng chứa các phần tử không trùng lặp: " + arr3)
+</script>
+</body>
+</html>
