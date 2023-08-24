@@ -6,16 +6,19 @@
 </head>
 <body>
 <script>
-    let h = +prompt("Nhập chiều cao: ");
-    for (let i = 0; i < h; i++) {
-        for (let k = h; k >i; k--) {
-            document.write("&nbsp");
+    let h = +prompt("nhập vào chiều cao của tam giác: ");
+    for (let i = 1; i <= h; i++) {
+        for (let j = 1 ; j <= h+i-1 ;j++){
+            if (j <=h-i){
+                document.write("&nbsp&nbsp");
+            }else {
+                document.write("*");
+            }
         }
-        for (j = 0; j <= i; j++) {
-            document.write("*")
-        }
-        document.write("</br>")
+        document.write("<br>");
     }
+
+
 </script>
 </body>
 </html>

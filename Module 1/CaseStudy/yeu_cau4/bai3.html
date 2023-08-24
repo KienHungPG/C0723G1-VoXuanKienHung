@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
 </head>
 <body>
-$END$
+<script>
+    let str1 = prompt("nhập vào chuỗi ký tự thứ 1")
+    str1New = str1.split("");
+
+    let str2 = prompt("nhập vào chuỗi ký tự thứ 2")
+    str2New = str2.split("");// cắt các chữ ra
+
+    let str3 = [];
+    for (let i = 0; i < str1New.length; i++) {
+        for (let j = 0; j < str2New.length; j++) {
+            if (str1New[i] === str2New[j]) {
+                str3.push(str1New[i]);
+                str1New.splice(i, 1); // xóa một phần tử tại vị trí i
+                str2New.splice(j, 1);// xóa một phần tử tại vị trí j
+            }
+        }
+    }
+    document.write("số ký tự chung là:"+str3 + "</br>");
+    document.write("độ dài mới bằng:" + str3.length);
+</script>
 </body>
 </html>

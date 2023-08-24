@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
 </head>
 <body>
-$END$
+<script>
+    let arrm = +prompt("nhập độ dài của mảng m");
+    let arrn = +prompt("nhập độ dài của mảng n");
+    let arr = []
+    let even = [];
+    let sum = 0;
+    for (let i = 0; i < arrm; i++) {
+        arr[i] = [];
+        for (let j = 0; j < arrn; j++) {
+            arr[i][j] = +prompt("vui lòng nhập phần tử " + (j + 1) + " trong mảng " + (i + 1));
+            if (arr[i][j] % 2 == 0) {
+                even.push(arr[i][j]);
+                sum += arr[i][j];
+            }
+        }
+    }
+    document.write("số bạn nhập vào: " + arr + "</br>");
+    document.write("những số chẵn trong mảng bạn nhập: " + even + "</br>");
+    document.write("Tổng của các số chẵn bằng: " + sum + "</br>");
+</script>
 </body>
 </html>

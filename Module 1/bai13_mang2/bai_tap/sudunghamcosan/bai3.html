@@ -6,22 +6,18 @@
 </head>
 <body>
 <script>
-    let string = prompt('Nhập vài kí tự hoặc câu');
-    let  UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let  LOWER= 'abcdefghijklmnopqrstuvwxyz';
-    let result = [];
-    for (let i = 0; i < string.length; i++) {
-        if (UPPER.indexOf(string[i]) !== -1) {
-            result.push(string[i].toLowerCase());
-        }
-        else if (LOWER.indexOf(string[i]) !== -1) {
-            result.push(string[i].toUpperCase());
+    let str = prompt("Nhập vào chuỗi của bạn: ");
+    document.write("Chuỗi của bạn là: " + str + "<br>");
+    let arr = str.split("");
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== arr[i].toUpperCase()){
+            arr[i] = arr[i].toUpperCase();
         }
         else {
-            result.push(string[i]);
+            arr[i] = arr[i].toLowerCase();
         }
     }
-    document.write(result.join(''));
+    document.write("Chuỗi sau khi chuyển đổi là: " + arr.join(""))
 </script>
 </body>
 </html>

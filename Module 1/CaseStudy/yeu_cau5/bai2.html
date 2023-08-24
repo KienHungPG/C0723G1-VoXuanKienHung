@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
 </head>
 <body>
-$END$
+<script>
+    let prime = [];
+    let arr = [
+        [3, 5, 6, 9],
+        [7, 11, 14, 17]
+    ];
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            let count = 0;
+            for (let k = 2; k < arr[i][j]; k++) {
+                if (arr[i][j] % k === 0) {
+                    count++
+                }
+            }
+            if (count === 0) {
+                prime.push(arr[i][j]);
+            }
+        }
+    }
+    document.write("Các số nguyên tố có trong mảng: " + prime);
+</script>
 </body>
 </html>

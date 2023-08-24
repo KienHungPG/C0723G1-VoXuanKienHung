@@ -6,6 +6,32 @@
 </head>
 <body>
 <script>
+    function standardized(string) {
+        let arrStr = string.split(" ");//chuyển chuỗi thành mảng
+        let arrFinal = [];
+        for (let i = 0; i < arrStr.length; i++) {
+            if (arrStr[i] !== "") {
+                arrFinal.push(arrStr[i]);
+            }
+        }
+        let strFinal = "";
+        for (let i = 0; i < arrFinal.length; i++) {
+            for (let j = 0; j < arrFinal[i].length; j++) {
+                if (j === 0) {
+                    strFinal += arrFinal[i][j].toUpperCase(); // chuyển thành chữ in hoa
+                } else {
+                    strFinal += arrFinal[i][j].toLowerCase();// chuyển thành chữ in thường
+                }
+            }
+            if (i < arrFinal.length - 1) {
+                strFinal += " ";
+            }
+        }
+        return strFinal;
+    }
+
+    let str = "tRuong    TaN   HAI ";
+    document.write(standardized(str));
     
 </script>
 </body>
