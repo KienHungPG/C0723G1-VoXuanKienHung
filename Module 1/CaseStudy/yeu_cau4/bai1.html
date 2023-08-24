@@ -30,9 +30,20 @@
         return strFinal;
     }
 
-    let str = "tRuong    TaN   HAI ";
-    document.write(standardized(str));
-    
+    function findLongestWord(string) {
+        let newArr = string.split(" ");
+        let longestStr = newArr[0];
+        for (let i = 1; i < newArr.length; i++) {
+            if (longestStr.length < newArr[i].length) {
+                longestStr = newArr[i];
+            }
+        }
+        return longestStr;
+    }
+
+    let str = prompt("nhập vào chuỗi của bạn");
+    document.write("Chuỗi sau khi chuẩn hóa: ", standardized(str) + "<br>");
+    document.write("Từ dài nhất trong chuỗi của bạn là: ", findLongestWord(str));
 </script>
 </body>
 </html>
