@@ -6,19 +6,19 @@
 </head>
 <body>
 <script>
-    let str = "cabca";
-    let arrStr = str.split("");
-    let arrSort = arrStr.sort();
-    let arrNew = [];
-    count = 0;
-
-    for (let i = 0; i < arrSort.length; i++) {
-        if (arrSort[i] !== arrSort[i + 1]) {
-            arrNew.push(arrSort[i]);
-            count++;
+    function differentSymbolsNaive(str) {
+        let result = [];
+        for (let i = 0; i < str.length; i++) {
+            if (!result.includes(str[i])) {
+                result.push(str[i]);
+            }
         }
+        document.write("Có ",result.length, " kí tự khác nhau trong chuỗi.")
+        return result;
     }
-    document.write(count, arrNew.join(','));
+
+    let str = prompt("Nhập vào chuỗi của bạn: ")
+    document.write("Các kí tự khác nhau trong chuỗi là: ", differentSymbolsNaive(str));
 
 
 </script>

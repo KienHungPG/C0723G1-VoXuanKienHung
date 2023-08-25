@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<h1>Hệ thống quản lý học sinh CODEGYM</h1>
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editInfoStudent()">Sửa thông tin học viên</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+<br><br>
+<div id="displayTable"></div>
+<script>
+    class Student {
+        constructor(id, name, classname, email, birthday, module) {
+            this.id = id;
+            this.name = name;
+            this.classname = classname;
+            this.email = email;
+            this.birthday = birthday;
+            this.module = module;
+        }
+    }
+
+    let student1 = new Student("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004", "1");
+    let student2 = new Student("HV-0002", "Nguyễn Văn B", "C1122G1", "nguyenvanb@gmail.com", "02/02/2004", "2");
+    let student3 = new Student("HV-0003", "Nguyễn Thị C", "C1222G1", "nguyenthic@gmail.com", "03/03/2004", "3");
+    let student = [student1, student2, student3];
+    displayTable(student);
+
+    function displayTable(arr) {
+        let table = "<table border='1' style='border-collapse: collapse'>" +
+            "<tr>" +
+            "<th>Mã học viên</th>" +
+            "<th>Tên học viên</th>" +
+            "<th>Lớp</th>" +
+            "<th>Email</th>" +
+            "<th>Ngày sinh</th>" +
+            "<th>Module</th>" +
+            "</tr>"
+        for (let i = 0; i < arr.length; i++) {
+            table += "<tr>" +
+                "<td>" + arr[i].id + "</td>" +
+                "<td>" + arr[i].name + "</td>" +
+                "<td>" + arr[i].classname + "</td>" +
+                "<td>" + arr[i].email + "</td>" +
+                "<td>" + arr[i].birthday + "</td>" +
+                "<td>" + arr[i].module + "</td>" +
+                "</tr>"
+        }
+        table += "</table>"
+        document.getElementById('displayTable').innerHTML = table;
+    }
+
+    const idStudentCondition = /^HV-\d{4}$/;
+    const birthdayCondition = /^\d{2}\/\d{2}\/\d{4}$/;
+    const nameCondition = /^[A-Za-z\s]{1,50}$/;
+    const emailCondition = /^[\w-]+@gmail\.com$/;
+
+    function addStudent(){
+        let newId, newName, newClassName, newEmail, newBirthday, newModule;
+        do {
+            newId = prompt("Nhập mã học viên (Nhập mã học viên dưới dạng HV-xxxx): ");
+            if (!(idStudentCondition.test(newId))) {
+                alert("Mã học viên không hợp lệ!");
+            } else if (checkId(newId)) {
+                alert("Mã học viên đã tồn tại. Vui lòng nhập lại.");
+            } else {
+                break;
+            }
+        } while (true);
+
+        do {
+            newName = prompt("Nhập tên học viên: ");
+        } while (!nameCondition.test(newName));
+
+        newClassName = prompt("Nhập lớp: ");
+
+        do {
+            newEmail = prompt("Nhập email học viên: ");
+        } while (!emailCondition.test(newEmail));
+
+        do {
+            newBirthday = prompt("Nhập ngày sinh học viên (dd/mm/yyyy): ");
+        } while (!birthdayCondition.test(newBirthday));
+
+        do {
+            newModule = prompt("Nhập module hiện tại học viên: ");
+        } while (isNaN(newModule) || newModule < 1 || newModule > 6);
+
+        let newStudent = new Student(newId, newName, newClassName, newEmail, newBirthday, newModule);
+        student.push(newStudent);
+        displayTable(student);
+
+    }
+
+    function editInfoStudent() {
+        let idStudent;
+        // debugger
+        do {
+            idStudent = prompt("Nhập mã học viên cần chỉnh sửa thông tin (Nhập mã học viên dưới dạng HV-xxxx): ");
+            if (!(idStudentCondition.test(idStudent))) {
+                alert("Mã học viên không tồn tại!!!");
+            }
+        } while (!(idStudentCondition.test(idStudent)))
+        // let count = 0;
+        for (let i = 0; i < student.length; i++) {
+            if (idStudent === student[i].id) {
+                do {
+                    student[i].name = prompt("Nhập lại tên học viên: ");
+                    if (!nameCondition.test(student[i].name)) {
+                        alert("Vui lòng nhập lại tên!!! ")
+                    } else {
+                        student[i].classname = prompt("Nhập lại lớp: ");
+                        do {
+                            student[i].email = prompt("Nhập lại email học viên: ");
+                            if (!emailCondition.test(student[i].email)) {
+                                alert("Vui lòng nhập lại email")
+                            } else {
+                                do {
+                                    student[i].birthday = prompt("Nhập lại ngày sinh học viên: ");
+                                    if (!birthdayCondition.test(student[i].birthday)) {
+                                        alert("Vui lòng nhập lại ngày sinh!!!")
+                                    } else {
+                                        do {
+                                            student[i].module = prompt("Nhập lại module học viên: ")
+                                            if (student[i].module < 1 || student[i].module > 6 || isNaN(student[i].module)) {
+                                                alert("Vui lòng nhập lại module!!!")
+                                            }
+                                        } while (student[i].module < 1 || student[i].module > 6 || isNaN(student[i].module))
+                                    }
+                                } while (!birthdayCondition.test(student[i].birthday))
+                            }
+                        } while (!emailCondition.test(student[i].email))
+                    }
+                } while (!nameCondition.test(student[i].name))
+                // count++;
+            }
+            // if (!checkInputValue(idStudent, student[i].name, student[i].classname, student[i].birthday, student[i].module)) {
+            //     alert("Thông tin không hợp lệ");
+            //     return;
+            // }
+        }
+        // if (count === 0) {
+        //     alert("Không tồn tại học viên này!!!");
+        // }
+
+        displayTable(student);
+    }
+
+    function deleteStudent() {
+        let idStudent;
+        do {
+            idStudent = prompt("Nhập mã học viên cần xóa (Nhập mã học viên dưới dạng HV-xxxx): ");
+            if (!(idStudentCondition.test(idStudent))) {
+                alert("Mã học viên không tồn tại!!!");
+            }
+        } while (!(idStudentCondition.test(idStudent)))
+        // let count = 0;
+        for (let i = 0; i < student.length; i++) {
+            if (idStudent === student[i].id) {
+                student.splice(i, 1);
+                displayTable(student);
+                // count++
+            }
+            // if (!checkInputValue(idStudent)) {
+            //     alert("Thông tin không hợp lệ");
+            //     return;
+            // }
+        }
+        // if (count === 0) {
+        //     alert("Không tồn tại học viên này!!!");
+    }
+
+    // }
+    function checkId(id) {
+        for (let i = 0; i < student.length; i++) {
+            if (id === student[i].id) {
+                return true;
+            }
+        }
+    }
+    function checkInputValue(id, name, birthday, email, module) {
+        const idStudentCondition = /^HV-\d{4}$/; // -	Mã học viên có định dạng HV-XXXX ( với XXXX là 4 chữ số )
+        const birthdayCondition = /^\d{2}\/\d{2}\/\d{4}$/; //Ngày sinh đúng định dạng dd/mm/yyyy
+        const nameCondition = /^[^\d\W_]{1,50}$/; // không nhận kí tự số và kí tự đặc biệt và max 50
+        const emailCondition = /^[\w-]+@gmail\.com$/; // email phải dưới định dang @gmail.com
+        if (!idStudentCondition.test(id)) {
+            return false;
+        }
+        // if (name.length > 50 || !isNaN(name) || /^[a-zA-Z]+$/) {
+        //     return false;
+        // }
+        if (!nameCondition.test(name)) {
+            return false;
+        }
+        if (!emailCondition.test(email)) {
+            return false;
+        }
+        if (module < 1 || module > 6) {
+            return false;
+        }
+        if (!birthdayCondition.test(birthday)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

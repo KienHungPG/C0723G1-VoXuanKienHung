@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VXKH</title>
+</head>
+<body>
+<script>
+    let str = "cabca";
+    let arrStr = str.split("");
+    let arrSort = arrStr.sort();
+    let arrNew = [];
+    count = 0;
+
+    for (let i = 0; i < arrSort.length; i++) {
+        if (arrSort[i] !== arrSort[i + 1]) {
+            arrNew.push(arrSort[i]);
+            count++;
+        }
+    }
+    document.write(count, arrNew.join(','));
+
+
+</script>
+</body>
+</html>
