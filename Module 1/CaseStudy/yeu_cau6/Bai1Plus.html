@@ -53,17 +53,18 @@
         document.getElementById('displayTable').innerHTML = table;
     }
 
-    const idStudentCondition = /^HV-\d{4}$/;
-    const birthdayCondition = /^\d{2}\/\d{2}\/\d{4}$/;
-    const nameCondition = /^[A-Za-z\s]{1,50}$/;
-    const emailCondition = /^[\w-]+@gmail\.com$/;
+    const idStudentCondition = /^HV-\d{4}$/;// - Mã học viên có định dạng HV-XXXX ( với XXXX là 4 chữ số )
+    const nameCondition = /^[\p{L}\s'-]{1,50}$/u; // Tên có định dạng chữ và max 50 kí tự (bao gồm tiếng Việt có dấu)
+    const emailCondition = /^[\w-]+@gmail\.com$/; // Email phải có định dạng đuôi là @gmail.com
+    var foundStudent = false;
 
-    function addStudent(){
+    function addStudent() {
         let newId, newName, newClassName, newEmail, newBirthday, newModule;
+
         do {
             newId = prompt("Nhập mã học viên (Nhập mã học viên dưới dạng HV-xxxx): ");
-            if (!(idStudentCondition.test(newId))) {
-                alert("Mã học viên không hợp lệ!");
+            if (!idStudentCondition.test(newId)) {
+                alert("Mã học viên không hợp lệ! Vui lòng nhập lại theo định dạng HV-xxxx.");
             } else if (checkId(newId)) {
                 alert("Mã học viên đã tồn tại. Vui lòng nhập lại.");
             } else {
@@ -73,71 +74,97 @@
 
         do {
             newName = prompt("Nhập tên học viên: ");
-        } while (!nameCondition.test(newName));
+            if (!nameCondition.test(newName) || newName[0] === " ") {
+                alert("Tên học viên không hợp lệ! Vui lòng nhập lại.");
+            }
+        } while (!nameCondition.test(newName) || newName[0] === " ");
 
-        newClassName = prompt("Nhập lớp: ");
+        do {
+            newClassName = prompt("Nhập lớp: ");
+            if (newClassName.trim() === "") {
+                alert("Vui lòng nhập lại lớp.");
+            }
+        } while (newClassName.trim() === "");
 
         do {
             newEmail = prompt("Nhập email học viên: ");
+            if (!emailCondition.test(newEmail)) {
+                alert("Email không hợp lệ! Vui lòng nhập lại theo định dạng example@gmail.com.");
+            }
         } while (!emailCondition.test(newEmail));
 
         do {
             newBirthday = prompt("Nhập ngày sinh học viên (dd/mm/yyyy): ");
+            if (!checkDate(newBirthday)) {
+                alert("Ngày sinh không hợp lệ! Vui lòng nhập lại theo định dạng dd/mm/yyyy.");
+            }
         } while (!checkDate(newBirthday));
 
         do {
             newModule = prompt("Nhập module hiện tại học viên: ");
+            if (isNaN(newModule) || newModule < 1 || newModule > 6) {
+                alert("Module không hợp lệ! Vui lòng nhập lại module từ 1 đến 6.");
+            }
         } while (isNaN(newModule) || newModule < 1 || newModule > 6);
 
         let newStudent = new Student(newId, newName, newClassName, newEmail, newBirthday, newModule);
         student.push(newStudent);
         displayTable(student);
-
     }
 
     function editInfoStudent() {
         let idStudent;
-        // debugger
         do {
             idStudent = prompt("Nhập mã học viên cần chỉnh sửa thông tin (Nhập mã học viên dưới dạng HV-xxxx): ");
             if (!(idStudentCondition.test(idStudent))) {
-                alert("Mã học viên không tồn tại!!!");
+                alert("Vui lòng nhập đúng định dạng mã học viên!!!");
             }
         } while (!(idStudentCondition.test(idStudent)))
         for (let i = 0; i < student.length; i++) {
             if (idStudent === student[i].id) {
+                foundStudent = true;
                 do {
                     student[i].name = prompt("Nhập lại tên học viên: ");
                     if (!nameCondition.test(student[i].name)) {
-                        alert("Vui lòng nhập lại tên!!! ")
+                        alert("Vui lòng nhập lại tên!!! ");
                     } else {
-                        student[i].classname = prompt("Nhập lại lớp: ");
                         do {
-                            student[i].email = prompt("Nhập lại email học viên: ");
-                            if (!emailCondition.test(student[i].email)) {
-                                alert("Vui lòng nhập lại email")
+                            student[i].classname = prompt("Nhập lại lớp: ");
+                            if (student[i].classname.trim() === "") {
+                                alert("Vui lòng nhập lại lớp");
                             } else {
                                 do {
-                                    student[i].birthday = prompt("Nhập lại ngày sinh học viên: ");
-                                    if (!checkDate(student[i].birthday)) {
-                                        alert("Vui lòng nhập lại ngày sinh!!!")
+                                    student[i].email = prompt("Nhập lại email học viên: ");
+                                    if (!emailCondition.test(student[i].email)) {
+                                        alert("Vui lòng nhập lại email");
                                     } else {
                                         do {
-                                            student[i].module = prompt("Nhập lại module học viên: ")
-                                            if (student[i].module < 1 || student[i].module > 6 || isNaN(student[i].module)) {
-                                                alert("Vui lòng nhập lại module!!!")
+                                            student[i].birthday = prompt("Nhập lại ngày sinh học viên: ");
+                                            if (!checkDate(student[i].birthday)) {
+                                                alert("Vui lòng nhập lại ngày sinh!!!");
+                                            } else {
+                                                do {
+                                                    student[i].module = prompt("Nhập lại module học viên: ");
+                                                    if (student[i].module < 1 || student[i].module > 6 || isNaN(student[i].module)) {
+                                                        alert("Vui lòng nhập lại module!!!");
+                                                    }
+                                                } while (student[i].module < 1 || student[i].module > 6 || isNaN(student[i].module));
                                             }
-                                        } while (student[i].module < 1 || student[i].module > 6 || isNaN(student[i].module))
+                                        } while (!checkDate(student[i].birthday));
                                     }
-                                } while (!birthdayCondition.test(student[i].birthday))
+                                } while (!emailCondition.test(student[i].email));
                             }
-                        } while (!emailCondition.test(student[i].email))
+                        } while (student[i].classname.trim() === "")
                     }
-                } while (!nameCondition.test(student[i].name))
+                } while (!nameCondition.test(student[i].name)) ;
+                if (!foundStudent) {
+                    alert("Không tìm thấy mã học viên!!!");
+                    editInfoStudent();
+                    return;
+                }
+                displayTable(student);
             }
         }
-
-        displayTable(student);
     }
 
     function deleteStudent() {
@@ -145,17 +172,23 @@
         do {
             idStudent = prompt("Nhập mã học viên cần xóa (Nhập mã học viên dưới dạng HV-xxxx): ");
             if (!(idStudentCondition.test(idStudent))) {
-                alert("Mã học viên không tồn tại!!!");
+                alert("Vui lòng nhập đúng mã học viên!!!");
             }
         } while (!(idStudentCondition.test(idStudent)))
         for (let i = 0; i < student.length; i++) {
             if (idStudent === student[i].id) {
+                foundStudent = true;
                 let del = confirm("Bạn có muốn xóa học viên này không");
-                if (del === true){
+                if (del === true) {
                     student.splice(i, 1);
                 }
                 displayTable(student);
             }
+        }
+        if (!foundStudent) {
+            alert("Không tìm thấy mã học viên!!!");
+            deleteStudent();
+            return;
         }
     }
 
@@ -166,6 +199,7 @@
             }
         }
     }
+
     function checkDate(date) {
         const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
         if (!datePattern.test(date)) {
@@ -199,28 +233,7 @@
 
         return true;
     }
-    function checkInputValue(id, name, birthday, email, module) {
-        const idStudentCondition = /^HV-\d{4}$/; // -	Mã học viên có định dạng HV-XXXX ( với XXXX là 4 chữ số )
-        const birthdayCondition = /^\d{2}\/\d{2}\/\d{4}$/; //Ngày sinh đúng định dạng dd/mm/yyyy
-        const nameCondition = /^[^\d\W_]{1,50}$/; // không nhận kí tự số và kí tự đặc biệt và max 50
-        const emailCondition = /^[\w-]+@gmail\.com$/; // email phải dưới định dang @gmail.com
-        if (!idStudentCondition.test(id)) {
-            return false;
-        }
-        if (!nameCondition.test(name)) {
-            return false;
-        }
-        if (!emailCondition.test(email)) {
-            return false;
-        }
-        if (module < 1 || module > 6) {
-            return false;
-        }
-        if (!birthdayCondition.test(birthday)) {
-            return false;
-        }
-        return true;
-    }
+
 </script>
 </body>
 </html>
