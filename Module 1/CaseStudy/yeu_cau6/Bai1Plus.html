@@ -157,13 +157,13 @@
                         } while (student[i].classname.trim() === "")
                     }
                 } while (!nameCondition.test(student[i].name)) ;
-                if (!foundStudent) {
-                    alert("Không tìm thấy mã học viên!!!");
-                    editInfoStudent();
-                    return;
-                }
-                displayTable(student);
             }
+            if (!foundStudent) {
+                alert("Không tìm thấy mã học viên!!!");
+                editInfoStudent();
+                return;
+            }
+            displayTable(student);
         }
     }
 
