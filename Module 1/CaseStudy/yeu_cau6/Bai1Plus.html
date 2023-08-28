@@ -101,11 +101,11 @@
         } while (!checkDate(newBirthday));
 
         do {
-            newModule = prompt("Nhập module hiện tại học viên: ");
-            if (isNaN(newModule) || newModule < 1 || newModule > 6) {
+            newModule = +prompt("Nhập module hiện tại học viên: ");
+            if (!Number.isInteger(newModule) || newModule < 1 || newModule > 6) {
                 alert("Module không hợp lệ! Vui lòng nhập lại module từ 1 đến 6.");
             }
-        } while (isNaN(newModule) || newModule < 1 || newModule > 6);
+        } while (!Number.isInteger(newModule) || newModule < 1 || newModule > 6);
 
         let newStudent = new Student(newId, newName, newClassName, newEmail, newBirthday, newModule);
         student.push(newStudent);
