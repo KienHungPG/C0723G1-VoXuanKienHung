@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập vào chuỗi của bạn: ");
+    document.write("Chuỗi bạn nhập là: "+ str + "<br>");
+    let cntUpper = 0;
+    let cntLower = 0;
+    function checkString(str){
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] >= 'A' && str[i] <= 'Z'){
+                cntUpper++
+            }else if (str[i] >= 'a' && str[i] <= 'z'){
+                cntLower++
+            }
+        }
+        if (cntLower === cntUpper){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    document.write(checkString(str));
+</script>
+</body>
+</html>

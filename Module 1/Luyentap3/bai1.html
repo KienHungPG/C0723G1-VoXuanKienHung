@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Hàm để kiểm tra số phần tử chẵn và lẻ
+    function checkEvenOddCount(arr) {
+        let evenCount = 0;
+        let oddCount = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+
+        if (evenCount === oddCount) {
+            return "OK";
+        } else {
+            return "NO";
+        }
+    }
+
+    // Hàm chính
+    function main() {
+        const n = parseInt(prompt("Nhập số lượng phần tử trong mảng: "));
+        const arr = [];
+
+        for (let i = 0; i < n; i++) {
+            const element = parseInt(prompt(`Nhập phần tử thứ ${i + 1}: `));
+            arr.push(element);
+        }
+
+        document.write("Mảng sau khi thêm mới các phần tử:", arr) + "<br>";
+
+        const result = checkEvenOddCount(arr);
+        document.write(result);
+    }
+
+    // Gọi hàm chính để thực hiện chương trình
+    main();
+
+</script>
+</body>
+</html>

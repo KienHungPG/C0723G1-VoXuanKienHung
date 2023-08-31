@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<SCRIPT>
+    let n;
+    do {
+        n = +prompt("Nhập vào n số chắn");
+        if (n % 2 === 0 && !isNaN(n) && n > 0) {
+            break;
+        } else {
+            alert("Vui lòng nhập số chẵn");
+        }
+    } while (true)
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let a = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng");
+        arr.push(a);
+    }
+    let flag = true;
+    for (let i = 0; i < arr.length; i += 2) {
+        if (arr[i] > arr[i + 1]) {
+            flag = false;
+        }
+    }
+    if (flag === true) {
+        document.write("OK");
+    } else {
+        document.write("NO");
+    }
+</SCRIPT>
+</body>
+</html>

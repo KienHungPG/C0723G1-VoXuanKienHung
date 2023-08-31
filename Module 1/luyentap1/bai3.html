@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập vào số a: ")
+    let b = +prompt("Nhập vào số b: ")
+    let c = +prompt("Nhập vào số c: ")
+    let x;
+    let delta;
+    if (a === 0){
+        if (b === 0){
+            if (c === 0){
+                document.write("Phương trình có vô số nghiệm.");
+            }else{
+                document.write("Phương trình vô nghiệm.")
+            }
+        }
+        else {
+            x = -c/b;
+            document.write("Phương trình có 1 nghiệm duy nhất là = " + x);
+        }
+    }else {
+        delta = Math.pow(b,2) - (4*a*c);
+        if (delta < 0 ){
+            document.write("Phương trình ax2 + bx + c = 0 vô nghiệm.")
+        }else if (delta === 0){
+            document.write("Phương trình ax2 + bx + c = 0 có nghiệm kép x1 = x2 = " + -b/(2*a));
+        }else {
+            let x1 = (-b + Math.sqrt(delta))/ (2*a);
+            let x2 = (-b - Math.sqrt(delta))/ (2*a);
+            document.write("Phương trình ax2 + bx + c = 0 có hai nghiệm phân biệt x1 = " + x1 + " và x2 = " + x2);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = +prompt("Nhập vào độ dài của mảng: ");
+        if (!isNaN(n) && n > 0){
+            break;
+        }else {
+            alert("Vui lòng nhập số nguyên dương")
+        }
+    }while (true)
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let a = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng");
+        arr.push(a);
+    }
+    document.write("Mảng của bạn là: "+ arr + "<br>");
+
+    let sum = 0;
+    for (const arrElement of arr) {
+        sum += arrElement;
+    }
+    let avg = sum/arr.length;
+
+    let cnt = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === avg){
+            cnt++;
+        }
+    }
+    document.write("Số lượng các số có giá trị bằng giá trị trung bình của mảng là: " + cnt );
+</script>
+</body>
+</html>

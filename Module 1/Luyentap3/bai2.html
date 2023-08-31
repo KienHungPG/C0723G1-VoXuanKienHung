@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+        function checkArray(arr) {
+            let flag = false;
+            for (let i = 0; i < arr.length/2; i++) {
+                if (Math.pow(arr[i],2) === arr[arr.length/2 + i]){
+                    flag = true;
+                }else {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag === true){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        let n = +prompt("Nhập vào n phần tử trong mảng");
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+            let a = +prompt("Nhập vào phần tử thứ " + (i+1) + " của mảng");
+            arr.push(a);
+        }
+        document.write("Mảng của bạn là: " + arr + "<br>");
+        document.write(checkArray(arr));
+</script>
+</body>
+</html>

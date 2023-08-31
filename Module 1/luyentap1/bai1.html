@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str  = prompt("Nhập vào chuỗi của bạn: ");
+    let strNew = "";
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== " "){
+            strNew += str[i];
+        }
+    }
+    console.log(strNew);
+    for (let i = 0; i < strNew.length; i++) {
+        document.write( strNew[i] + " số lần xuất hiện của các ký tự trong chuỗi " + (strNew.split(strNew[i]).length - 1) + "<br>" )
+    }
+</script>
+</body>
+</html>

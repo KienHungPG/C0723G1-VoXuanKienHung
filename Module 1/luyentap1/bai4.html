@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập vào chuỗi của bạn: ");
+    document.write("Chuỗi ban đầu của bạn là: " + str + "<br>");
+    let arr = [];
+    for (let i = 0; i < str.length; i++) {
+        arr.push(str[i]);
+    }
+    arr = arr.reverse();
+    document.write("Chuỗi sau khi đảo ngược là : " + arr);
+</script>
+</body>
+</html>

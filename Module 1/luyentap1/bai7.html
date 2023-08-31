@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = +prompt("nhập vào số nguyên n: ")
+        if (n >= 0 && !isNaN(n)){
+            break;
+        }else {
+            alert("Vui lòng nhập n > 0")
+        }
+    }while (true)
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        do {
+            arr[i] = prompt("nhập vào phần tử thứ " + i + " của mảng");
+            if (!isNaN(arr[i])){
+                break;
+            }else {
+                alert("Vui lòng nhập số hợp lệ.")
+            }
+        }while (true)
+    }
+    function checkArr(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > arr[i+1]){
+                return true;
+            }else {
+                return false;
+            }
+        }
+    }
+    if (checkArr(arr)){
+        document.write("Mảng giảm");
+    }else {
+        document.write("Mảng không giảm")
+    }
+</script>
+</body>
+</html>

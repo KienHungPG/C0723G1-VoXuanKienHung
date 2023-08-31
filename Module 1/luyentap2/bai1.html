@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Yêu cầu người dùng nhập vào một chuỗi
+    let str = prompt("Nhập vào một chuỗi:");
+
+    // Hàm để đảo ngược chuỗi
+    function reverseString(str) {
+        return str.split('').reverse().join('');
+    }
+
+    // Gọi hàm đảo ngược chuỗi và in ra kết quả
+    let reversedString = reverseString(str);
+    document.write("Chuỗi đảo ngược: " + reversedString);
+</script>
+</body>
+</html>

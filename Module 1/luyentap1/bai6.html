@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = +prompt("nhập vào số nguyên n: ")
+        if (n >= 0 && !isNaN(n)){
+            break;
+        }else {
+            alert("Vui lòng nhập n > 0")
+        }
+    }while (true)
+
+    let factorial = 1;
+    for (let i = 1; i <= n; i++) {
+        factorial *= i;
+    }
+    document.write("Giai thừa của n là: " + factorial);
+</script>
+</body>
+</html>

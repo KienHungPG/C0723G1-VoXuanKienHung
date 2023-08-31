@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let area;
+
+    function areaTriangle() {
+        let h;
+        do {
+            h = prompt("Nhập vào chiều cao của tam giác: ");
+            if (!isNaN(h) && h > 0) {
+                break;
+            } else {
+                alert("Vui lòng nhập h là số nguyên dương")
+            }
+        } while (true)
+        let a;
+        do {
+            a = prompt("Nhập vào độ dài cạnh đáy của tam giác: ");
+            if (!isNaN(a) && a > 0) {
+                break;
+            } else {
+                alert("Vui lòng nhập a là số nguyên dương")
+            }
+        } while (true)
+        area = 1 / 2 * a * h;
+        document.write("diện tích tam giác là: " + area + "<br>");
+    }
+
+    function areaCircle() {
+        let r;
+        do {
+            r = prompt("Nhập vào bán kính hình tròn: ");
+            if (!isNaN(r) && r > 0) {
+                break;
+            } else {
+                alert("Vui lòng nhập r là số nguyên dương")
+            }
+        } while (true)
+        area = 2 * Math.PI * Math.pow(r, 2);
+        document.write("diện tích hình tròn là: " + area + "<br>");
+    }
+
+    function areaSquare() {
+        let a;
+        do {
+            a = prompt("Nhập vào độ dài cạnh hình vuông: ");
+            if (!isNaN(a) && a > 0) {
+                break;
+            } else {
+                alert("Vui lòng nhập a là số nguyên dương")
+            }
+        } while (true)
+        area = Math.pow(a, 2)
+        document.write("diện tích hình vuông là: " + area + "<br>");
+    }
+
+    function areaRectangle() {
+        let a;
+        do {
+            a = prompt("Nhập vào chiều dài của hình chữ nhật: ");
+            if (!isNaN(a) && a > 0) {
+                break;
+            } else {
+                alert("Vui lòng nhập a là số nguyên dương")
+            }
+        } while (true)
+        let b;
+        do {
+            b = prompt("Nhập vào chiều rộng của hình chữ nhật: ");
+            if (!isNaN(b) && b > 0) {
+                break;
+            } else {
+                alert("Vui lòng nhập b là số nguyên dương")
+            }
+        } while (true)
+        area = a * b;
+        document.write("diện tích hình chữ nhật là: " + area + "<br>");
+    }
+
+    areaTriangle();
+    areaCircle();
+    areaSquare();
+    areaRectangle();
+</script>
+</body>
+</html>

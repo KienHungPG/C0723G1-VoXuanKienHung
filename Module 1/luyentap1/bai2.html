@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập vào số a: ")
+    let b = +prompt("Nhập vào số b: ")
+    let x;
+    if (a === 0){
+        if (b === 0){
+            document.write("Phương trình ax + b = 0 có vô số nghiệm.");
+        }else{
+            document.write("Phương trình ax + b = 0 vô nghiệm.")
+        }
+    }
+    else {
+        x = -b/a;
+        document.write("Phương trình ax + b = 0 có 1 nghiệm duy nhất là -b/a = " + x);
+    }
+</script>
+</body>
+</html>

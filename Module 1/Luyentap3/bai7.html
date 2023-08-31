@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = +prompt("Nhập vào độ dài của mảng: ");
+        if (!isNaN(n) && n > 0){
+            break;
+        }else {
+            alert("Vui lòng nhập số nguyên dương")
+        }
+    }while (true)
+    let a;
+    let arr = [];
+        for (let i = 0; i < n; i++) {
+            while (true) {
+                a = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng.");
+                if (a > 10 && a < 100) {
+                    arr.push(a);
+                    break;
+                } else {
+                    alert("Vui lòng nhập phần tử lớn hơn 10 và nhỏ hơn 100");
+                }
+            }
+        }
+    document.write("Mảng của bạn là: " + arr);
+    let resultArray = arr.filter(a => a % 10 > a / 10);
+    document.write("Kết quả:", resultArray.join(", "));
+</script>
+</body>
+</html>

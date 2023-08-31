@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //31567
+    function ascending(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > arr[i+1]){
+                return false
+            }
+        }
+        return true;
+    }
+    function decrease(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < arr[i+1]){
+                return false
+            }
+        }
+        return true;
+    }
+    function isSort() {
+        if (decrease(arr) || ascending(arr)){
+            document.write("OK")
+        }else {
+            document.write("NO")
+        }
+    }
+
+    let n = +prompt("Nhập vào độ dài của mảng: ");
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let a = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng")
+        arr.push(a);
+    }
+    document.write("Mảng của bạn là: " + arr + "<br>");
+    isSort();
+</script>
+</body>
+</html>
