@@ -6,9 +6,9 @@ public class MaxElement {
         int rows;
         int cols;
 
-        System.out.println("Enter the number of rows: ");
+        System.out.print("Enter the number of rows: ");
         rows = scanner.nextInt();
-        System.out.println("Enter the number of columns: ");
+        System.out.print("Enter the number of columns: ");
         cols = scanner.nextInt();
         int[][] array = new int[rows][cols];
         for(int i = 0; i < rows; i++){
@@ -17,9 +17,9 @@ public class MaxElement {
                 array[i][j] = scanner.nextInt();
             }
         }
-        System.out.print("\nMatrix = ");
+        System.out.print("Your matrix: ");
         for(int i = 0; i < rows; i++){
-            System.out.print("\n");
+            System.out.println();
             for (int j = 0; j < cols; j++){
                 System.out.print(array[i][j] + "\t");
             }
