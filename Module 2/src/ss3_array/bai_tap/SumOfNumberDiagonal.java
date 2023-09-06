@@ -1,6 +1,8 @@
 package ss3_array.bai_tap;
+
 import java.util.Scanner;
-public class MaxElement {
+
+public class SumOfNumberDiagonal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int rows;
@@ -25,14 +27,14 @@ public class MaxElement {
             }
         }
         System.out.println();
-        int max = array[0][0];
-        for(int i = 0; i < rows; i++){
-            for (int j = 1; j < cols; j++){
-                if (max < array[i][j]){
-                    max = array[i][j];
+        double sum = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (j == i){
+                    sum += array[i][j];
                 }
             }
         }
-        System.out.println("Max value in matrix: " +max);
+        System.out.println("Sum of number on the main diagonal is: " + sum);
     }
 }

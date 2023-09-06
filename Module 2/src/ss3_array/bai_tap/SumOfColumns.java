@@ -1,6 +1,8 @@
 package ss3_array.bai_tap;
+
 import java.util.Scanner;
-public class MaxElement {
+
+public class SumOfColumns {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int rows;
@@ -25,14 +27,12 @@ public class MaxElement {
             }
         }
         System.out.println();
-        int max = array[0][0];
-        for(int i = 0; i < rows; i++){
-            for (int j = 1; j < cols; j++){
-                if (max < array[i][j]){
-                    max = array[i][j];
-                }
-            }
+        System.out.println("Enter the column you want to sum: ");
+        int column = scanner.nextInt();
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum = sum + array[i][column];
         }
-        System.out.println("Max value in matrix: " +max);
+        System.out.println("The sum of the numbers in column " + column + " is: " + sum);
     }
 }

@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Prime {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int num, cnt = 0;
+        int num;
+        int cnt = 0;
         System.out.println("Nhập số lượng số nguyên tố: ");
         num = scanner.nextInt();
         System.out.println("Các số nguyên tố lần lượt là: ");

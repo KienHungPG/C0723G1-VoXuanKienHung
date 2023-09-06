@@ -6,7 +6,8 @@ public class NumberArray2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] arr = {10, 4, 6, 7, 8, 0, 0, 0, 0, 0};
-        int x, index;
+        int x;
+        int index;
         System.out.print("Your array is: ");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + "\t");
