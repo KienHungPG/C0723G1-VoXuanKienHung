@@ -12,10 +12,10 @@ public class CountOfChar {
         System.out.println("Enter the charactor you want to find in the string: ");
         char targetChar = scanner.next().charAt(0);
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == targetChar){
+            if (str.charAt(i) == targetChar) {
                 cnt++;
             }
         }
-        System.out.println("Number of occurrences of the character " + targetChar + " in string is: " +cnt);
+        System.out.println("Number of occurrences of the character " + targetChar + " in string is: " + cnt);
     }
 }

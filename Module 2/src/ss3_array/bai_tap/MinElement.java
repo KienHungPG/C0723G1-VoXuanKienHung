@@ -22,10 +22,10 @@ public class MinElement {
         }
         int min = array[0];
         for (int j = 0; j < array.length; j++) {
-            if (array[j] < min){
+            if (array[j] < min) {
                 min = array[j];
             }
         }
-        System.out.println("The min element is: " +min);
+        System.out.println("The min element is: " + min);
     }
 }

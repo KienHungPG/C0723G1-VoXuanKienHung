@@ -13,16 +13,16 @@ public class SumOfNumberDiagonal {
         System.out.println("Enter the number of columns: ");
         cols = scanner.nextInt();
         int[][] array = new int[rows][cols];
-        for(int i = 0; i < rows; i++){
-            for (int j = 0; j < cols; j++){
-                System.out.printf("Enter the element [%d][%d]: ", i,j);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.printf("Enter the element [%d][%d]: ", i, j);
                 array[i][j] = scanner.nextInt();
             }
         }
         System.out.print("\nMatrix = ");
-        for(int i = 0; i < rows; i++){
+        for (int i = 0; i < rows; i++) {
             System.out.print("\n");
-            for (int j = 0; j < cols; j++){
+            for (int j = 0; j < cols; j++) {
                 System.out.print(array[i][j] + "\t");
             }
         }
@@ -30,7 +30,7 @@ public class SumOfNumberDiagonal {
         double sum = 0;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                if (j == i){
+                if (j == i) {
                     sum += array[i][j];
                 }
             }

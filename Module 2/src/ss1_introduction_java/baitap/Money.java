@@ -2,7 +2,7 @@ package ss1_introduction_java.baitap;
 
 import java.util.Scanner;
 
-public class ConvertMoney {
+public class Money {
     public static void main(String[] args) {
         int rate = 23000;
         double usd;

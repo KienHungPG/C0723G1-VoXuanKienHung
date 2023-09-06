@@ -4,33 +4,48 @@ import java.util.Scanner;
 
 public class NumberArray2 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[] arr = {10, 4, 6, 7, 8, 0, 0, 0, 0, 0};
-        int x;
+        int element;
+        int[] array;
         int index;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.print("Enter number of element of Array: ");
+            element = scanner.nextInt();
+            if (element > 0) {
+                break;
+            } else {
+                System.out.println("Number of element must be greater than 0");
+            }
+        } while (true);
+        array = new int[element];
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("Enter element " + (i + 1) + " of array : ");
+            array[i] = scanner.nextInt();
+        }
         System.out.print("Your array is: ");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + "\t");
+        for (int k : array) {
+            System.out.print(k + "\t");
         }
         System.out.println();
         do {
             System.out.print("Enter a element you want to insert to array: ");
-            x = scanner.nextInt();
+            element = scanner.nextInt();
             System.out.print("Enter a position you want to insert element: ");
             index = scanner.nextInt();
-            if (index < 0 || index > arr.length){
+            if (index < 0 || index > array.length) {
                 System.out.print("Please enter a valid position \n");
-            }else {
-                insertElement(arr, index,x);
+            } else {
+                insertElement(array, index, element);
                 break;
             }
-        }while (true);
+        } while (true);
     }
-    public static void insertElement(int[] arr, int index, int x){
-        for (int i = arr.length-2; i >= index; i--) {
-            arr[i+1] = arr[i];
+
+    public static void insertElement(int[] arr, int index, int element) {
+        for (int i = arr.length - 2; i >= index; i--) {
+            arr[i + 1] = arr[i];
         }
-        arr[index] = x;
+        arr[index] = element;
         System.out.print("Array after insert the element is: ");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + "\t");
