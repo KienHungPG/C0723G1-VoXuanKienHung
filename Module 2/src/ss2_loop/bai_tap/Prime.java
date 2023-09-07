@@ -11,26 +11,22 @@ public class Prime {
         number = scanner.nextInt();
         System.out.println("Các số nguyên tố lần lượt là: ");
         for (int i = 0; count < number; i++) {
-            if (checkPrime(i)) {
+            if (isPrime(i)) {
                 System.out.println(i);
                 count++;
             }
         }
     }
 
-    public static boolean checkPrime(int number) {
-        int count = 0;
-        boolean result = true;
+    public static boolean isPrime(int number) {
         if (number < 2) {
-            result = false;
-        } else {
-            for (int i = 1; i <= Math.sqrt(number); i++) {
-                if (number % i == 0) {
-                    count++;
-                }
-                result = count < 2;
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
             }
         }
-        return result;
+        return true;
     }
 }

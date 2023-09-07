@@ -10,20 +10,16 @@ public class PrimeLessMore100 {
         }
     }
 
-    public static boolean checkPrime(int number) {
-        int count = 0;
-        boolean result = true;
+    public static boolean isPrime(int number) {
         if (number < 2) {
-            result = false;
-        } else {
-            for (int i = 1; i <= Math.sqrt(number); i++) {
-                if (number % i == 0) {
-                    count++;
-                }
-                result = count < 2;
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
             }
         }
-        return result;
+        return true;
     }
 }
 
