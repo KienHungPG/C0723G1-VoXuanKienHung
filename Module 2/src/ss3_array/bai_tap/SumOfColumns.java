@@ -15,7 +15,7 @@ public class SumOfColumns {
         int[][] array = new int[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                System.out.printf("Enter the element [%d][%d]: ", i, j);
+                System.out.print("Enter the element row " + (i + 1) + ", col " + (j + 1) + ": ");
                 array[i][j] = scanner.nextInt();
             }
         }

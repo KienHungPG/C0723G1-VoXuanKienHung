@@ -15,13 +15,13 @@ public class SumOfNumberDiagonal {
         int[][] array = new int[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                System.out.printf("Enter the element [%d][%d]: ", i, j);
+                System.out.print("Enter the element row " + (i + 1) + ", col " + (j + 1) + ": ");
                 array[i][j] = scanner.nextInt();
             }
         }
-        System.out.print("\nMatrix = ");
+        System.out.println("Your matrix: ");
         for (int i = 0; i < rows; i++) {
-            System.out.print("\n");
+            System.out.println();
             for (int j = 0; j < cols; j++) {
                 System.out.print(array[i][j] + "\t");
             }
