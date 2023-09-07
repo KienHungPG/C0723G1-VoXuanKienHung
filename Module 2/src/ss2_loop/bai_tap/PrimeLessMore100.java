@@ -4,7 +4,7 @@ public class PrimeLessMore100 {
     public static void main(String[] args) {
         System.out.println("Các số nguyên tố lần lượt là: ");
         for (int i = 0; i < 100; i++) {
-            if (checkPrime(i)) {
+            if (isPrime(i)) {
                 System.out.println(i);
             }
         }
