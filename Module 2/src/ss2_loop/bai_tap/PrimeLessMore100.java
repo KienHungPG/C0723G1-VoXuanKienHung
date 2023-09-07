@@ -11,20 +11,17 @@ public class PrimeLessMore100 {
     }
 
     public static boolean checkPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
         int i = 2;
-        boolean check = true;
         while (i <= number / 2) {
             if (number % i == 0) {
-                check = false;
-                break;
+                return false;
             }
             i++;
         }
-        if (check) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
     }
 }
 
