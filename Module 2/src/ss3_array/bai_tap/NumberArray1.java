@@ -25,31 +25,34 @@ public class NumberArray1 {
             System.out.print(k + "\t");
         }
         System.out.println();
-        System.out.print("Enter the element that you want to delete: ");
-        int delNumber = scanner.nextInt();
-        boolean check = false;
-        int indexDel;
+        int deleteElement;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the element that you want to delete: ");
+        deleteElement = input.nextInt();
+
+        int index = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == delNumber) {
-                check = true;
-                indexDel = i;
-                int temp;
-                for (int j = indexDel; j < array.length - 1; j++) {
-                    temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                }
-                array[array.length - 1] = 0;
-                i--;
+            if (array[i] == deleteElement) {
+                index = i;
+                System.out.println("Index of " + deleteElement + " is: " + index);
             }
         }
-        if (check) {
-            System.out.print("Your array after delete element" + delNumber + " is: ");
-            for (int j : array) {
-                System.out.print(j + " ");
-            }
+        if (index == 0) {
+            System.out.println(deleteElement + " not found in array");
         } else {
-            System.out.println(delNumber + " not found in array");
+            int[] array1 = new int[array.length];
+            int count = 0;
+            for (int k : array) {
+                if (deleteElement == k) {
+                    continue;
+                }
+                array1[count] = k;
+                count++;
+            }
+            System.out.println("Array after delele element is: ");
+            for (int i : array1) {
+                System.out.print(i + " ");
+            }
         }
     }
 }
