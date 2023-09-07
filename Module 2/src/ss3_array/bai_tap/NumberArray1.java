@@ -43,7 +43,6 @@ public class NumberArray1 {
                 i--;
             }
         }
-        //display array after delete delElement
         if (check) {
             System.out.print("Your array after delete element" + delNumber + " is: ");
             for (int j : array) {
