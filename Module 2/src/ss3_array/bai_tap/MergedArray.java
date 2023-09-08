@@ -2,7 +2,7 @@ package ss3_array.bai_tap;
 
 import java.util.Scanner;
 
-public class NumberArray3 {
+public class MergedArray {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] arr1 = new int[5];
