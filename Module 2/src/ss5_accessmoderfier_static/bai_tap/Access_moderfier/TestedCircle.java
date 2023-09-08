@@ -9,7 +9,7 @@ public class TestedCircle {
 }
 
 /*
-Dùng private cho getRadius và getArea thì chương trình bị lỗi do private chỉ được sử dụng trong cùng 1 package
+Dùng private cho getRadius và getArea thì chương trình bị lỗi do private chỉ được sử dụng trong cùng 1 class
 Dùng protected cho getRadius và getArea thì chương trình vẫn chạy được
 Khi default chương trình vẫn hoạt động
 */

@@ -9,7 +9,7 @@ public class TestedStudent {
     }
 }
 /*
-Dùng private cho setName và setClasses thì chương trình bị lỗi do private chỉ được sử dụng trong cùng 1 package
+Dùng private cho setName và setClasses thì chương trình bị lỗi do private chỉ được sử dụng trong cùng 1 class
 Dùng protected cho setName và setClasses thì chương trình vẫn chạy được
 Khi default chương trình vẫn hoạt động
 */
