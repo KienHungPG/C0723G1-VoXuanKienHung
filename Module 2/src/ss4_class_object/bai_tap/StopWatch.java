@@ -47,9 +47,6 @@ public class StopWatch {
             numbersArray[minIndex] = numbersArray[i];
             numbersArray[i] = temp;
         }
-        for (int i = 0; i < numbersArray.length; i++) {
-            System.out.print(numbersArray[i] + "\t");
-        }
         // Dừng đo thời gian
         stopWatch.stop();
 

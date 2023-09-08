@@ -29,11 +29,7 @@ public class SumOfNumberDiagonal {
         System.out.println();
         double sum = 0;
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (j == i) {
-                    sum += array[i][j];
-                }
-            }
+            sum += array[i][i];
         }
         System.out.println("Sum of number on the main diagonal is: " + sum);
     }

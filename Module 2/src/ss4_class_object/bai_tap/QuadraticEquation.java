@@ -1,11 +1,13 @@
 package ss4_class_object.bai_tap;
+
 import java.util.Scanner;
+
 public class QuadraticEquation {
     private double a;
     private double b;
     private double c;
 
-    public QuadraticEquation(){
+    public QuadraticEquation() {
     }
 
     public double getA() {
@@ -31,22 +33,26 @@ public class QuadraticEquation {
     public void setC(double c) {
         this.c = c;
     }
-    public double getDiscriminant(){
-        return Math.pow(b,2) - 4*a*c;
+
+    public double getDiscriminant() {
+        return Math.pow(b, 2) - 4 * a * c;
     }
-    public double getRoot1(){
-        return (-b + Math.sqrt(Math.pow(b,2) - 4*a*c))/(2*a);
+
+    public double getRoot1() {
+        return (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
     }
-    public double getRoot2(){
-        return (-b - Math.sqrt(Math.pow(b,2) - 4*a*c))/(2*a);
+
+    public double getRoot2() {
+        return (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
     }
-    public void display(){
-        if (getDiscriminant() < 0 ){
+
+    public void display() {
+        if (getDiscriminant() < 0) {
             System.out.println("The equation has no roots");
         } else if (getDiscriminant() == 0) {
-            System.out.println("The equation has 1 root x= " +getRoot1());
-        }else {
-            System.out.println("The equation has 2 roots: \nx1 = " +getRoot1() + "\nx2 = " +getRoot2());
+            System.out.println("The equation has 1 root x= " + getRoot1());
+        } else {
+            System.out.println("The equation has 2 roots: \nx1 = " + getRoot1() + "\nx2 = " + getRoot2());
         }
     }
 
@@ -55,9 +61,17 @@ public class QuadraticEquation {
         double a;
         double b;
         double c;
-        System.out.println("Find the solution of the quadratic equation ax2 + bx +c = 0");
-        System.out.println("Enter a: ");
-        a = scanner.nextDouble();
+        System.out.println("Find the solution of the quadratic equation ax2 + bx +c = 0 (a is not 0) ");
+        do {
+            System.out.println("Enter a: ");
+            a = scanner.nextDouble();
+            if (a != 0) {
+                break;
+            }else {
+                System.out.println("a is not 0!");
+            }
+        } while (true);
+
         System.out.println("Enter b: ");
         b = scanner.nextDouble();
         System.out.println("Enter c: ");
