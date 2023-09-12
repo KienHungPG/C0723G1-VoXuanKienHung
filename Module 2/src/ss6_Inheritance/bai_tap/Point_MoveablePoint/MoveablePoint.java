@@ -46,11 +46,27 @@ public class MoveablePoint extends Point {
         return "MoveablePoint{" +
                 "xSpeed=" + xSpeed +
                 ", ySpeed=" + ySpeed +
+                ", x=" + getX() +
+                ", y=" + getY() +
                 '}';
     }
     public MoveablePoint move(){
         this.setX(this.getX()+this.getXSpeed());
         this.setY(this.getY()+this.getYSpeed());
         return this;
+    }
+
+    public static class MoveablePointTest{
+        public static void main(String[] args) {
+            MoveablePoint moveablePoint = new MoveablePoint();
+            moveablePoint.setX(5);
+            moveablePoint.setY(9);
+            System.out.println("x = " + moveablePoint.getX());
+            System.out.println("y = " + moveablePoint.getY());
+
+            MoveablePoint moveablePoint1 = new MoveablePoint(1,2,4,6);
+            System.out.println(moveablePoint1);
+            System.out.println(moveablePoint1.move());
+        }
     }
 }
