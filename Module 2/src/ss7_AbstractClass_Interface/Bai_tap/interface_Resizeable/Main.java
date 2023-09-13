@@ -11,7 +11,7 @@ public class Main {
             System.out.println(shape);
         }
         for (int i = 0; i < shapes.length; i++) {
-            shapes[i].resize(Math.random() * 100);
+            shapes[i].resize((Math.random() * 100)+1);
         }
         System.out.println("After resize");
         for (Shape shape : shapes) {

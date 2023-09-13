@@ -36,7 +36,9 @@ public class Circle extends Shape implements IResizeable {
         return "A Circle with radius="
                 + getRadius()
                 + ", which is a subclass of "
-                + super.toString();
+                + super.toString()
+                + ", Area "
+                + getArea();
     }
     @Override
     public void resize(double percent) {

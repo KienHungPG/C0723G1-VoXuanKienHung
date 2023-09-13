@@ -49,7 +49,9 @@ public class Rectangle extends Shape implements IResizeable {
                 + " and length="
                 + getLength()
                 + ", which is a subclass of "
-                + super.toString();
+                + super.toString()
+                + ", Area "
+                + getArea();
     }
 
     @Override
