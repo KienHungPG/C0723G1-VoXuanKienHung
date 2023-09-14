@@ -10,8 +10,8 @@ public class Main {
         for (Shape shape : shapes) {
             System.out.println(shape);
         }
-        for (int i = 0; i < shapes.length; i++) {
-            shapes[i].resize((Math.random() * 100)+1);
+        for (Shape value : shapes) {
+            value.resize((Math.random() * 100) + 1);
         }
         System.out.println("After resize");
         for (Shape shape : shapes) {
