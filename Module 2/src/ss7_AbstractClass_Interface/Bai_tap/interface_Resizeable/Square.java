@@ -1,6 +1,6 @@
 package ss7_AbstractClass_Interface.Bai_tap.interface_Resizeable;
 
-public class Square extends Rectangle implements IResizeable {
+public class Square extends Rectangle {
     public Square() {
     }
 
