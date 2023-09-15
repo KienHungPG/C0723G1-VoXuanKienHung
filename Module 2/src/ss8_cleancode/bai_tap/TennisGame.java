@@ -1,6 +1,12 @@
 package ss8_cleancode.bai_tap;
 
 public class TennisGame {
+    public static final String SCORE0 = "Love";
+    public static final String SCORE1 = "Fifteen";
+    public static final String SCORE2 = "Thirty";
+    public static final String SCORE3 = "Forty";
+    public static final String ALL = "-All";
+    public static final String DEUCE = "Deuce";
 
     public static String getScore(String player1Name, String player2Name, int player1Score, int player2Score) {
         boolean isDraw = player1Score == player2Score;
@@ -14,19 +20,19 @@ public class TennisGame {
         String score = "";
         switch (drawScore) {
             case 0:
-                score = "Love-all";
+                score = SCORE0 + ALL;
                 break;
             case 1:
-                score = "Fifteen-All";
+                score = SCORE1 + ALL;
                 break;
             case 2:
-                score = "Thirty-All";
+                score = SCORE2 + ALL;
                 break;
             case 3:
-                score = "Forty-All";
+                score = SCORE3 + ALL;
                 break;
             case 4:
-                score = "Deuce";
+                score = DEUCE;
                 break;
         }
         return score;
@@ -44,16 +50,16 @@ public class TennisGame {
         String score = "";
         switch (playerScore) {
             case 0:
-                score = "Love";
+                score = SCORE0;
                 break;
             case 1:
-                score = "Fifteen";
+                score = SCORE1;
                 break;
             case 2:
-                score = "Thirty";
+                score = SCORE2;
                 break;
             case 3:
-                score = "Forty";
+                score = SCORE3;
                 break;
         }
         return score;
