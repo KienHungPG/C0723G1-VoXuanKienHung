@@ -37,7 +37,7 @@ public class TruckController {
                     iTruckService.searchTruck();
                     break;
                 case 5:
-                    return;
+                    break;
             }
         } while (true);
     }

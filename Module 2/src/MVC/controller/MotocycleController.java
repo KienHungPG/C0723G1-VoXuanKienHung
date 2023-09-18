@@ -37,7 +37,7 @@ public class MotocycleController {
                     iMotorcycleService.searchMotorcycle();
                     break;
                 case 5:
-                    return;
+                    break;
             }
         } while (true);
     }

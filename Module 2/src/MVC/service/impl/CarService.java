@@ -1,16 +1,22 @@
 package MVC.service.impl;
 
 import MVC.model.Manufacturer;
+import MVC.repository.ICarRepository;
+import MVC.repository.impl.CarRepositoryImpl;
 import MVC.service.ICarService;
 import MVC.model.Car;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarService implements ICarService {
     private static Scanner scanner = new Scanner(System.in);
-    private static ArrayList<Car> listCar = new ArrayList<>();
+    private final static ICarRepository iCarRepository = new CarRepositoryImpl();
     private static ArrayList<Manufacturer> listManufacturer = new ArrayList<>();
+
+
+
 
     public static void addManufacturer(Manufacturer manufacturer) {
         listManufacturer.add(manufacturer);
@@ -18,12 +24,13 @@ public class CarService implements ICarService {
 
     @Override
     public void addCar() {
-        listCar.add(infoCar());
+        iCarRepository.addCar(infoCar());
         System.out.println("Add success!!! ");
     }
 
     @Override
     public void displayCar() {
+        List<Car> listCar = iCarRepository.displayCar();
         for (Car car : listCar) {
             System.out.println(car);
         }
@@ -33,13 +40,14 @@ public class CarService implements ICarService {
     public void deleteCar() {
         System.out.println("Enter license plate: ");
         String licensePlate = scanner.nextLine();
+        List<Car> listCar = iCarRepository.displayCar();
 
         for (int i = 0; i < listCar.size(); i++) {
             if (listCar.get(i).getLicensePlate().equals(licensePlate)) {
                 System.out.println("Press Y to confirm: ");
                 String choice = scanner.nextLine();
                 if (choice.equals("Y")) {
-                    listCar.remove(i);
+                    iCarRepository.deleteCar(listCar.get(i));
                     System.out.println("Delete success!!!");
                 }
                 break;
@@ -53,6 +61,7 @@ public class CarService implements ICarService {
     public void searchCar() {
         System.out.println("Enter license plate:");
         String licensePlate = scanner.nextLine();
+        List<Car> listCar = iCarRepository.displayCar();
         for (int i = 0; i < listCar.size(); i++) {
             if (listCar.get(i).getLicensePlate().equals(licensePlate)) {
                 System.out.println(listCar.get(i));

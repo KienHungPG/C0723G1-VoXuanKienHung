@@ -1,5 +1,6 @@
 package MVC.service;
 
+
 public interface ICarService {
     void addCar();
 

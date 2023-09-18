@@ -38,7 +38,7 @@ public class CarController<iCarService> {
                     iCarService.searchCar();
                     break;
                 case 5:
-                    return;
+                    break;
             }
         } while (true);
     }
