@@ -6,21 +6,23 @@ public class AscendingString {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your string: ");
-        String string = scanner.nextLine();
-        String newString = "";
-        String result = "";
+        String inputString = scanner.nextLine();
+        String AscendingSubString = "";
 
-        for (int i = 0; i < string.length() - 1; i++) {
-            newString += string.charAt(i);
-            for (int j = i + 1; j < string.length(); j++) {
-                if (string.charAt(j) > string.charAt(i)) {
-                    newString += string.charAt(j);
-                    i = j;
-                }
+        for (int i = 0; i < inputString.length(); i++) {
+            String temp = "" + inputString.charAt(i);
+            int j = i;
+
+            while (j < inputString.length() - 1 && inputString.charAt(j) <= inputString.charAt(j + 1)) {
+                temp += inputString.charAt(j + 1);
+                j++;
             }
-            result = newString.length() > result.length() ? newString : result;
-            newString = "";
+
+            if (temp.length() > AscendingSubString.length()) {
+                AscendingSubString = temp;
+            }
         }
-        System.out.println(result);
+
+        System.out.println("Longest ascending substring: " + AscendingSubString);
     }
 }
