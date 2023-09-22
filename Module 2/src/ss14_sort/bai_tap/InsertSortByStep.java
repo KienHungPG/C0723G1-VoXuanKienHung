@@ -25,8 +25,10 @@ public class InsertSortByStep {
             }
 
             arr[j + 1] = key;
+
             System.out.println("Step " + i + ":");
             printArray(arr);
+            System.out.println("Change value at index "+ (j + 1) + " to " + key );
         }
     }
 
