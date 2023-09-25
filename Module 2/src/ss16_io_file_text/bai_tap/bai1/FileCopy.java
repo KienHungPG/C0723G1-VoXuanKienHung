@@ -11,6 +11,15 @@ public class FileCopy {
         String destinationFileName = "File_Result.txt";
         File sourceFile = new File(sourceDirectoryPath, sourceFileName);
         File destinationFile = new File(destinationDirectoryPath, destinationFileName);
+        if (destinationFile.exists()) {
+            System.out.println("The target file already exists. Do you want to overwrite? (y/n)");
+            Scanner scanner = new Scanner(System.in);
+            String response = scanner.nextLine().toLowerCase();
+            if (!response.equals("y")) {
+                System.out.println("Cancel copying.");
+                return;
+            }
+        }
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(sourceFile));
              BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter(destinationFile, true));
              BufferedReader bufferedReader = new BufferedReader(new FileReader(sourceFile));
