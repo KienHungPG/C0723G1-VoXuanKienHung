@@ -12,8 +12,9 @@ public class FileCopy {
         File sourceFile = new File(sourceDirectoryPath, sourceFileName);
         File destinationFile = new File(destinationDirectoryPath, destinationFileName);
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(sourceFile));
-             BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter(destinationFile));
-             BufferedReader bufferedReader = new BufferedReader(new FileReader(sourceFile))) {
+             BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter(destinationFile, true));
+             BufferedReader bufferedReader = new BufferedReader(new FileReader(sourceFile));
+             BufferedReader bufferedReaderDestination = new BufferedReader(new FileReader(destinationFile))) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("WRITE SOMETHING BRO!!!");
             bufferedWriter.write(scanner.nextLine());
@@ -21,9 +22,12 @@ public class FileCopy {
             String line;
             int charCount = 0;
             while ((line = bufferedReader.readLine()) != null) {
-                charCount += line.length();
                 bufferedWriter1.write(line);
                 bufferedWriter1.newLine();
+            }
+            bufferedWriter1.flush();
+            while ((line = bufferedReaderDestination.readLine()) != null) {
+                charCount += line.length();
             }
             System.out.println("Number of characters in the file: " + charCount);
             System.out.println("Copy file successfully.");
