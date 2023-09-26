@@ -20,10 +20,18 @@ public class FileCopy {
                 return;
             }
         }
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(sourceFile));
-             BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter(destinationFile, true));
-             BufferedReader bufferedReader = new BufferedReader(new FileReader(sourceFile));
-             BufferedReader bufferedReaderDestination = new BufferedReader(new FileReader(destinationFile))) {
+
+        BufferedWriter bufferedWriter = null;
+        BufferedWriter bufferedWriter1 = null;
+        BufferedReader bufferedReader = null;
+        BufferedReader bufferedReaderDestination = null;
+
+        try {
+            bufferedWriter = new BufferedWriter(new FileWriter(sourceFile));
+            bufferedWriter1 = new BufferedWriter(new FileWriter(destinationFile, true));
+            bufferedReader = new BufferedReader(new FileReader(sourceFile));
+            bufferedReaderDestination = new BufferedReader(new FileReader(destinationFile));
+
             Scanner scanner = new Scanner(System.in);
             System.out.println("WRITE SOMETHING BRO!!!");
             bufferedWriter.write(scanner.nextLine());
@@ -40,9 +48,25 @@ public class FileCopy {
             }
             System.out.println("Number of characters in the file: " + charCount);
             System.out.println("Copy file successfully.");
-
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (bufferedWriter != null) {
+                    bufferedWriter.close();
+                }
+                if (bufferedWriter1 != null) {
+                    bufferedWriter1.close();
+                }
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+                if (bufferedReaderDestination != null) {
+                    bufferedReaderDestination.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

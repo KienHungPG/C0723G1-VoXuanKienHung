@@ -11,8 +11,10 @@ public class Main {
     public static void main(String[] args) {
         String csvFile = "E:\\CG\\Module 2\\src\\ss16_io_file_text\\bai_tap\\bai2\\data.csv";
         List<Country> countries = new ArrayList<>();
+        BufferedReader bufferedReader = null;
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(csvFile))) {
+        try {
+            bufferedReader = new BufferedReader(new FileReader(csvFile));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] data = line.split(",");
@@ -26,6 +28,14 @@ public class Main {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         for (Country country : countries) {
