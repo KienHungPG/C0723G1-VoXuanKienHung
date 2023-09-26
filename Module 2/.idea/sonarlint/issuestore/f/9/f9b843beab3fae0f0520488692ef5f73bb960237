@@ -1,0 +1,22 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ò±Ú›ÿÿÿÿÿ8ĞûŠ‚­1
+p
+java:S2095+"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(º¥€™ÿÿÿÿÿ8Ÿ«î‚­1
+j
+java:S2095*"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(ÌÄÙ´8Ÿ«î‚­1
+c
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(„Ò¿–şÿÿÿÿ8©¸Ü‚­1
+^
+java:S1075
+"ARefactor your code to get this URI from a customizable parameter.(™­«É8©¸Ü‚­1
+c	java:S899"BDo something with the "boolean" value returned by "createNewFile".(½½¢µüÿÿÿÿ8ªèç‚­1
+F	java:S106"+Replace this use of System.out by a logger.(†ïK8¯¸Ü‚­1
+G	java:S106"+Replace this use of System.out by a logger.(±Üø8°¸Ü‚­1
+^	java:S899"BDo something with the "boolean" value returned by "createNewFile".(ìè·á8ÎÅã‚­1
+L	java:S106"+Replace this use of System.out by a logger.(º©‘æÿÿÿÿÿ8±¸Ü‚­1
+G	java:S106"+Replace this use of System.out by a logger.(–ÀéË8ÔÅã‚­1
+G	java:S106."+Replace this use of System.out by a logger.(¸¶á 8ª«î‚­1
+F	java:S106;"+Replace this use of System.out by a logger.(Á·ŞB8««î‚­1
+L	java:S106<"+Replace this use of System.out by a logger.(¥–ñÔÿÿÿÿÿ8««î‚­1
+L
+java:S2093("*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8¬«î‚­1

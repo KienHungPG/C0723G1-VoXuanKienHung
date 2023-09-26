@@ -1,0 +1,20 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ì½½Œùÿÿÿÿ8È’–‚­1
+h
+java:S2095 "LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(öœÑC8€ó£‚­1
+n
+java:S2095!"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(¢¾Á¥ûÿÿÿÿ8€ó£‚­1
+n
+java:S2095"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(§±‹Íşÿÿÿÿ8ó£‚­1
+^
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(ßì·¢8Ñ’–‚­1
+c
+java:S1075
+"ARefactor your code to get this URI from a customizable parameter.(úÓ·«üÿÿÿÿ8Ò’–‚­1
+L	java:S106"+Replace this use of System.out by a logger.(”€½şÿÿÿÿ8Õ’–‚­1
+G	java:S106"+Replace this use of System.out by a logger.(¿€äÜ8Ù’–‚­1
+G	java:S106$"+Replace this use of System.out by a logger.(¸¶á 8Ü’–‚­1
+F	java:S1061"+Replace this use of System.out by a logger.(Á·ŞB8ß’–‚­1
+L	java:S1062"+Replace this use of System.out by a logger.(¥–ñÔÿÿÿÿÿ8á’–‚­1
+L
+java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8ä’–‚­1

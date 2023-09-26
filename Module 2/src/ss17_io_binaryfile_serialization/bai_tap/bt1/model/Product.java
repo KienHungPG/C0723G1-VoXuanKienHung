@@ -1,45 +1,48 @@
 package ss17_io_binaryfile_serialization.bai_tap.bt1.model;
 
-public class Product {
-    private String productCode;
-    private String productName;
-    private double productPrice;
+import java.io.Serializable;
+
+public class Product implements Serializable {
+    private String id;
+
+    private String name;
+    private double price;
     private String manufacturer;
     private String detail;
 
     public Product() {
     }
 
-    public Product(String productCode, String productName, double productPrice, String manufacturer, String detail) {
-        this.productCode = productCode;
-        this.productName = productName;
-        this.productPrice = productPrice;
+    public Product(String productCode, String name, double price, String manufacturer, String detail) {
+        this.id = productCode;
+        this.name = name;
+        this.price = price;
         this.manufacturer = manufacturer;
         this.detail = detail;
     }
 
-    public String getProductCode() {
-        return productCode;
+    public String getId() {
+        return id;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setId(String productCode) {
+        this.id = productCode;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public double getProductPrice() {
-        return productPrice;
+    public double getPrice() {
+        return price;
     }
 
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getManufacturer() {
@@ -61,9 +64,9 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productCode='" + productCode + '\'' +
-                ", productName='" + productName + '\'' +
-                ", productPrice=" + productPrice +
+                "productCode='" + id + '\'' +
+                ", productName='" + name + '\'' +
+                ", productPrice=" + price +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", detail='" + detail + '\'' +
                 '}';
