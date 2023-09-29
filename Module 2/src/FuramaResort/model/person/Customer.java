@@ -9,13 +9,8 @@ public class Customer extends Person {
 
     public Customer(){
     }
-    public Customer(String customerCode, String customerType, String address) {
-        this.customerCode = customerCode;
-        this.customerType = customerType;
-        this.address = address;
-    }
 
-    public Customer(String name, Date dateOfBirth, String gender, int numberIDCard, int numberPhone, String email, String customerCode, String customerType, String address) {
+    public Customer(String name, String dateOfBirth, String address, String gender, String numberIDCard, String numberPhone, String email, String customerCode, String customerType) {
         super(name, dateOfBirth, gender, numberIDCard, numberPhone, email);
         this.customerCode = customerCode;
         this.customerType = customerType;
@@ -44,5 +39,20 @@ public class Customer extends Person {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + getName() + '\'' +
+                ", dateOfBirth=" + getDateOfBirth() +
+                ", address='" + address + '\'' +
+                ", gender='" + getGender() + '\'' +
+                ", numberIDCard=" + getNumberIDCard() +
+                ", numberPhone=" + getNumberPhone() +
+                ", email='" + getEmail() + '\'' +
+                ", customerCode='" + customerCode + '\'' +
+                ", customerType='" + customerType + '\'' +
+                '}';
     }
 }

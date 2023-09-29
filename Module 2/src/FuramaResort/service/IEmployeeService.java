@@ -1,4 +1,9 @@
 package FuramaResort.service;
 
-public interface IEmployeeService extends IFuramaService{
+import FuramaResort.model.person.Employee;
+
+public interface IEmployeeService extends IFuramaService<Employee>{
+    Employee editEmployee(String id, Employee employee);
+    Employee deleteEmployee(String id);
+    Employee searchEmployee(String name);
 }

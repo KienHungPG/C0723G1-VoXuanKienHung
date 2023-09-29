@@ -1,4 +1,8 @@
 package FuramaResort.repository;
 
-public interface IFuramaRepository {
+import java.util.List;
+
+public interface IFuramaRepository<E> {
+    void add(E e);
+    List<E> getList();
 }

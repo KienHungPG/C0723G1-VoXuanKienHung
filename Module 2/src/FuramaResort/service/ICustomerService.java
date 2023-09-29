@@ -1,4 +1,9 @@
 package FuramaResort.service;
 
-public interface ICustomerService extends IFuramaService{
+import FuramaResort.model.person.Customer;
+
+public interface ICustomerService extends IFuramaService<Customer>{
+    void editCustomer(String id, Customer customer);
+    void deleteCustomer(String id);
+    Customer searchCustomer(String name);
 }

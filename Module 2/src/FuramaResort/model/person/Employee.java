@@ -3,21 +3,15 @@ package FuramaResort.model.person;
 import java.util.Date;
 
 public class Employee extends Person{
+
     private String employeeCode;
     private String academicLevel;
     private String jobPosition;
     private int Salary;
 
-    public Employee(){
-    }
-    public Employee(String employeeCode, String academicLevel, String jobPosition, int salary) {
-        this.employeeCode = employeeCode;
-        this.academicLevel = academicLevel;
-        this.jobPosition = jobPosition;
-        Salary = salary;
-    }
+    public Employee() {}
 
-    public Employee(String name, Date dateOfBirth, String gender, int numberIDCard, int numberPhone, String email, String employeeCode, String academicLevel, String jobPosition, int salary) {
+    public Employee(String name, String dateOfBirth, String gender, String numberIDCard, String numberPhone, String email, String employeeCode, String academicLevel, String jobPosition, int salary) {
         super(name, dateOfBirth, gender, numberIDCard, numberPhone, email);
         this.employeeCode = employeeCode;
         this.academicLevel = academicLevel;
@@ -55,5 +49,21 @@ public class Employee extends Person{
 
     public void setSalary(int salary) {
         Salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + getName() + '\'' +
+                ", dateOfBirth=" + getDateOfBirth() +
+                ", gender='" + getGender() + '\'' +
+                ", numberIDCard=" + getNumberIDCard() +
+                ", numberPhone=" + getNumberPhone() +
+                ", email='" + getEmail() + '\'' +
+                "employeeCode='" + employeeCode + '\'' +
+                ", academicLevel='" + academicLevel + '\'' +
+                ", jobPosition='" + jobPosition + '\'' +
+                ", Salary=" + Salary +
+                '}';
     }
 }

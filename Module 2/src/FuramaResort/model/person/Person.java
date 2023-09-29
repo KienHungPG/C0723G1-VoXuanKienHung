@@ -2,18 +2,18 @@ package FuramaResort.model.person;
 
 import java.util.Date;
 
-public class Person {
+public abstract class Person {
     private String name;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String gender;
-    private int numberIDCard;
-    private int numberPhone;
+    private String numberIDCard;
+    private String numberPhone;
     private String email;
 
     public Person() {
     }
 
-    public Person(String name, Date dateOfBirth, String gender, int numberIDCard, int numberPhone, String email) {
+    public Person(String name, String dateOfBirth, String gender, String numberIDCard, String numberPhone, String email) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -30,11 +30,11 @@ public class Person {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -46,19 +46,19 @@ public class Person {
         this.gender = gender;
     }
 
-    public int getNumberIDCard() {
+    public String getNumberIDCard() {
         return numberIDCard;
     }
 
-    public void setNumberIDCard(int numberIDCard) {
+    public void setNumberIDCard(String numberIDCard) {
         this.numberIDCard = numberIDCard;
     }
 
-    public int getNumberPhone() {
+    public String getNumberPhone() {
         return numberPhone;
     }
 
-    public void setNumberPhone(int numberPhone) {
+    public void setNumberPhone(String numberPhone) {
         this.numberPhone = numberPhone;
     }
 
