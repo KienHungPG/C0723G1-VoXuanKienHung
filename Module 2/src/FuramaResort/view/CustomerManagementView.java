@@ -115,8 +115,8 @@ public class CustomerManagementView {
         return customerCode;
     }
 
-    public Customer editCustomer() {
-        String customerCode;
+    public Customer editCustomer(String currentCustomerCode) {
+        String customerCode = currentCustomerCode;
         String customerName;
         String dateOfBirth = null;
         String address;
@@ -126,13 +126,6 @@ public class CustomerManagementView {
         String gender;
         String email;
         boolean check;
-        do {
-            System.out.println("Enter new the customer code as KH-YYYY: ");
-            customerCode = scanner.nextLine();
-            if (!Regex.customerCodeValidate(customerCode)) {
-                System.out.println("Invalid customer code, please re-enter");
-            }
-        } while (!Regex.customerCodeValidate(customerCode));
         do {
             System.out.println("Enter the customer's new name: ");
             customerName = scanner.nextLine();
@@ -206,6 +199,11 @@ public class CustomerManagementView {
                 "employeeCode='" + customer.getCustomerCode() + '\'' +
                 "employeeType='" + customer.getCustomerType() + '\'' +
                 '}';
+    }
+    public String inputNameSearch(){
+        System.out.println("Enter the name you want to search: ");
+        String name = scanner.nextLine();
+        return name;
     }
 
 }

@@ -26,7 +26,7 @@ public class EmployeeController {
                     break;
                 case 3:
                     String employeeCodeToEdit = employeeManagementView.inputEmployeeCode();
-                    Employee existingEmployee = employeeService.searchEmployee(employeeCodeToEdit);
+                    Employee existingEmployee = employeeService.searchEmployeeById(employeeCodeToEdit);
                     if (existingEmployee == null) {
                         System.out.println("Not found the employee to edit.");
                     } else {

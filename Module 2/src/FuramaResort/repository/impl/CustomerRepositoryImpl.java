@@ -12,30 +12,38 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     private final String COMMA = ",";
 
     @Override
-    public void editCustomer(String id, Customer customer) {
+    public Customer editCustomer(String id, Customer customer) {
         List<Customer> customerList = convertToCustomer(FileUtils.readFile(PATH));
         int index;
+        Customer temp = null;
         for (Customer value : customerList) {
             if (value.getCustomerCode().equals(id)) {
                 index = customerList.indexOf(value);
+                temp = value;
                 customerList.set(index, customer);
             }
+        }
+        if (temp != null) {
             FileUtils.writeFile(PATH, convertToString(customerList));
         }
+        return temp;
     }
 
     @Override
-    public void deleteCustomer(String id) {
+    public Customer deleteCustomer(String id) {
         List<Customer> customerList = convertToCustomer(FileUtils.readFile(PATH));
         int index;
-        for (Customer value: customerList) {
-            if (value.getCustomerCode().equals(id)){
+        Customer temp;
+        for (Customer value : customerList) {
+            if (value.getCustomerCode().equals(id)) {
                 index = customerList.indexOf(value);
+                temp = value;
                 customerList.remove(index);
-                break;
+                FileUtils.writeFile(PATH, convertToString(customerList));
+                return temp;
             }
-            FileUtils.writeFile(PATH,convertToString(customerList));
         }
+        return null;
     }
 
     @Override
@@ -46,7 +54,19 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 return valueSearch;
             }
         }
-        FileUtils.writeFile(PATH,convertToString(customers));
+        FileUtils.writeFile(PATH, convertToString(customers));
+        return null;
+    }
+
+    @Override
+    public Customer searchCustomerById(String id) {
+        List<Customer> customers = convertToCustomer(FileUtils.readFile(PATH));
+        for (Customer valueIdSearch : customers) {
+            if (valueIdSearch.getCustomerCode().equals(id)) {
+                return valueIdSearch;
+            }
+        }
+        FileUtils.writeFile(PATH, convertToString(customers));
         return null;
     }
 
@@ -54,7 +74,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     public void add(Customer customer) {
         List<Customer> customerList = convertToCustomer(FileUtils.readFile(PATH));
         customerList.add(customer);
-        FileUtils.writeFile(PATH,convertToString(customerList));
+        FileUtils.writeFile(PATH, convertToString(customerList));
     }
 
     @Override

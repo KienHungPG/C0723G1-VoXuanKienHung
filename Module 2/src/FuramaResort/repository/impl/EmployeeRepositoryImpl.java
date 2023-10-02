@@ -16,17 +16,18 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     public Employee editEmployee(String id, Employee employee) {
         List<Employee> employeeList = convertToEmployee(FileUtils.readFile(PATH));
         int index;
-        Employee temp;
+        Employee temp = null;
         for (Employee value : employeeList) {
             if (value.getEmployeeCode().equals(id)) {
                 index = employeeList.indexOf(value);
                 temp = value;
                 employeeList.set(index, employee);
-                return temp;
             }
+        }
+        if (temp != null){
             FileUtils.writeFile(PATH, convertToString(employeeList));
         }
-        return null;
+        return temp;
     }
 
     @Override
@@ -50,8 +51,20 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     public Employee searchEmployee(String name) {
         List<Employee> employees = convertToEmployee(FileUtils.readFile(PATH));
         for (Employee valueSearch : employees) {
-            if (valueSearch.getName().equalsIgnoreCase(name)) {
+            if (valueSearch.getName().equals(name)) {
                 return valueSearch;
+            }
+        }
+        FileUtils.writeFile(PATH, convertToString(employees));
+        return null;
+    }
+
+    @Override
+    public Employee searchEmployeeById(String id) {
+        List<Employee> employees = convertToEmployee(FileUtils.readFile(PATH));
+        for (Employee valueIdSearch : employees) {
+            if (valueIdSearch.getEmployeeCode().equals(id)) {
+                return valueIdSearch;
             }
         }
         FileUtils.writeFile(PATH, convertToString(employees));

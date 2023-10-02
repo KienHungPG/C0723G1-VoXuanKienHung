@@ -24,6 +24,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
         return employeeRepository.searchEmployee(name);
     }
 
+    @Override
+    public Employee searchEmployeeById(String id) {
+        return employeeRepository.searchEmployeeById(id);
+    }
 
     @Override
     public void add(Employee employee) {
