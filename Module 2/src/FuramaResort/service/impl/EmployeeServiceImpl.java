@@ -20,7 +20,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     @Override
-    public Employee searchEmployee(String name) {
+    public List<Employee> searchEmployee(String name) {
         return employeeRepository.searchEmployee(name);
     }
 

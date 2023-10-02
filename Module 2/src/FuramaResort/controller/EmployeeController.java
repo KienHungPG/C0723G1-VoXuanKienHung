@@ -4,6 +4,7 @@ import FuramaResort.model.person.Employee;
 import FuramaResort.service.impl.EmployeeServiceImpl;
 import FuramaResort.view.EmployeeManagementView;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeController {
@@ -52,11 +53,11 @@ public class EmployeeController {
                     }
                     break;
                 case 5:
-                    Employee employeeToSearch = employeeService.searchEmployee(employeeManagementView.inputNameSearch());
+                    List<Employee> employeeToSearch = employeeService.searchEmployee(employeeManagementView.inputNameSearch());
                     if (employeeToSearch == null) {
                         System.out.println("Not found the employee.");
                     } else {
-                        employeeManagementView.searchEmployee(employeeToSearch);
+                        System.out.println(employeeToSearch);
                     }
                     break;
                 case 6:

@@ -2,6 +2,7 @@ package FuramaResort.utils;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class Regex {
@@ -18,6 +19,9 @@ public class Regex {
     private static final String JOB_POSITION = "^(receptionist|serviceman|specialist|supervisor|manager|director)$";
     private static final String CUSTOMER_CODE = "^KH-\\d{4}$";
     private static final String CUSTOMER_TYPE = "^(Diamond|Platinum|Gold|Silver|Member)$";
+    private static final String VILLA_CODE = "^SVVL-\\d{4}$";
+    private static final String SERVICE_NAME = "^[A-Z][a-z]*$";
+    private static final String RENT_TYPE = "^(Year|Month|Day|Hourly)$";
 
     public static boolean genderValidate(String gender) {
         pattern = Pattern.compile(GENDER_VALIDATE);
@@ -39,12 +43,19 @@ public class Regex {
         matcher = pattern.matcher(employeeName);
         return matcher.matches();
     }
-    public static boolean ageValidate(String dateOfBirth){
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dob = LocalDate.parse(dateOfBirth,dateTimeFormatter);
-        LocalDate now = LocalDate.now();
-        Period period = Period.between(dob,now);
-        return period.getYears() >= 18;
+    public static boolean ageValidate(String dateOfBirth) {
+        try {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate dob = LocalDate.parse(dateOfBirth, dateTimeFormatter);
+            if (dateOfBirth.equals(dateTimeFormatter.format(dob))) {
+                LocalDate now = LocalDate.now();
+                Period period = Period.between(dob, now);
+                return period.getYears() >= 18;
+            }
+            return false;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
     }
     public static boolean numberIdCardValidate(String numberIdCard) {
         pattern = Pattern.compile(NUMBER_ID_CARD);
@@ -74,6 +85,21 @@ public class Regex {
     public static boolean customerTypeValidate(String customerType) {
         pattern = Pattern.compile(CUSTOMER_TYPE);
         matcher = pattern.matcher(customerType);
+        return matcher.matches();
+    }
+    public static boolean villaCodeValidate(String serviceCode) {
+        pattern = Pattern.compile(VILLA_CODE);
+        matcher = pattern.matcher(serviceCode);
+        return matcher.matches();
+    }
+    public static boolean serviceNameValidate(String serviceName) {
+        pattern = Pattern.compile(SERVICE_NAME);
+        matcher = pattern.matcher(serviceName);
+        return matcher.matches();
+    }
+    public static boolean rentalTypeValidate(String rentalType) {
+        pattern = Pattern.compile(RENT_TYPE);
+        matcher = pattern.matcher(rentalType);
         return matcher.matches();
     }
 }

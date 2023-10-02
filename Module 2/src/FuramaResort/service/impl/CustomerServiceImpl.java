@@ -30,7 +30,7 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
-    public Customer searchCustomer(String name) {
+    public List<Customer> searchCustomer(String name) {
         return customerRepository.searchCustomer(name);
     }
 

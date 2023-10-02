@@ -4,6 +4,7 @@ import FuramaResort.model.person.Customer;
 import FuramaResort.utils.Regex;
 
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,6 +31,7 @@ public class CustomerManagementView {
     }
 
     public Customer inputCustomer() {
+        List<Customer> customerList = new ArrayList<>();
         String customerCode;
         String customerName;
         String dateOfBirth = null;
@@ -62,7 +64,7 @@ public class CustomerManagementView {
                 if (Regex.ageValidate(dateOfBirth)) {
                     check = true;
                 } else {
-                    System.out.println("The customer's age must be greater than 18!");
+                    System.out.println("The customer's age invalid!");
                 }
             } catch (DateTimeParseException e) {
                 System.out.println("The customer's date of birth is invalid, please re-enter");

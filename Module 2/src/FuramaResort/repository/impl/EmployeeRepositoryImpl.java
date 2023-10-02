@@ -48,15 +48,16 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     }
 
     @Override
-    public Employee searchEmployee(String name) {
+    public List<Employee> searchEmployee(String name) {
         List<Employee> employees = convertToEmployee(FileUtils.readFile(PATH));
+        List<Employee> employeeList = new ArrayList<>();
         for (Employee valueSearch : employees) {
-            if (valueSearch.getName().equals(name)) {
-                return valueSearch;
+            if (valueSearch.getName().contains(name)) {
+                employeeList.add(valueSearch);
             }
         }
         FileUtils.writeFile(PATH, convertToString(employees));
-        return null;
+        return employeeList;
     }
 
     @Override

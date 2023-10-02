@@ -47,15 +47,16 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     }
 
     @Override
-    public Customer searchCustomer(String name) {
+    public List<Customer> searchCustomer(String name) {
         List<Customer> customers = convertToCustomer(FileUtils.readFile(PATH));
+        List<Customer> employeeList = new ArrayList<>();
         for (Customer valueSearch : customers) {
-            if (valueSearch.getName().equals(name)) {
-                return valueSearch;
+            if (valueSearch.getName().contains(name)) {
+                employeeList.add(valueSearch);
             }
         }
         FileUtils.writeFile(PATH, convertToString(customers));
-        return null;
+        return employeeList;
     }
 
     @Override

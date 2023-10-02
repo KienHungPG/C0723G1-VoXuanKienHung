@@ -5,6 +5,7 @@ import FuramaResort.model.person.Employee;
 import FuramaResort.service.impl.CustomerServiceImpl;
 import FuramaResort.view.CustomerManagementView;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomerController {
@@ -52,11 +53,11 @@ public class CustomerController {
                     }
                     break;
                 case 5:
-                    Customer customerToSearch = customerService.searchCustomer(customerManagementView.inputNameSearch());
+                    List<Customer> customerToSearch = customerService.searchCustomer(customerManagementView.inputNameSearch());
                     if (customerToSearch == null) {
                         System.out.println("Not found the customer.");
                     } else {
-                        customerManagementView.searchCustomer(customerToSearch);
+                        System.out.println(customerToSearch);
                     }
                     break;
                 case 6:

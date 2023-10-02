@@ -1,4 +1,9 @@
 package FuramaResort.repository;
 
-public interface IFacilityRepository extends IFuramaRepository{
+import FuramaResort.model.infrastructure.Facility;
+
+import java.util.List;
+
+public interface IFacilityRepository extends IFuramaRepository<Facility>{
+    void deleteFacility(Facility facility);
 }
