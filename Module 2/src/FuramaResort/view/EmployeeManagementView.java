@@ -1,6 +1,8 @@
 package FuramaResort.view;
 
+import FuramaResort.model.person.Customer;
 import FuramaResort.model.person.Employee;
+import FuramaResort.repository.impl.EmployeeRepositoryImpl;
 import FuramaResort.utils.Regex;
 
 import java.time.format.DateTimeParseException;
@@ -8,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeManagementView {
+    private final EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
     Scanner scanner = new Scanner(System.in);
 
     public void displayEmployeeMenu() {
@@ -29,9 +32,18 @@ public class EmployeeManagementView {
             }
         }
     }
+    public boolean checkId(String id) {
+        List<Employee> employeeList = employeeRepository.getList();
+        for (Employee employee : employeeList) {
+            if (employee.getEmployeeCode().equals(id)){
+                return  true;
+            }
+        }
+        return false;
+    }
 
     public Employee inputEmployee() {
-        String employeeCode;
+        String employeeCode = null;
         String employeeName;
         String dateOfBirth = null;
         String numberIdCard;
@@ -42,13 +54,27 @@ public class EmployeeManagementView {
         String gender;
         String email;
         boolean check;
+        boolean checkId = false;
         do {
-            System.out.println("Enter the employee code as NV-YYYY: ");
-            employeeCode = scanner.nextLine();
-            if (!Regex.employeeCodeValidate(employeeCode)) {
-                System.out.println("Invalid employee code, please re-enter");
-            }
-        } while (!Regex.employeeCodeValidate(employeeCode));
+            do {
+                try {
+                    System.out.println("Enter the employee code as NV-YYYY: ");
+                    employeeCode = scanner.nextLine();
+                    if (checkId(employeeCode)){
+                        throw new Exception();
+                    }else {
+                        checkId = true;
+                    }
+                    if (!Regex.employeeCodeValidate(employeeCode)) {
+                        System.out.println("Invalid employee code, please re-enter");
+                    }
+                }catch (Exception e){
+                    System.out.println("Id already exists.");
+                    checkId = false;
+                }
+
+            } while (!Regex.employeeCodeValidate(employeeCode));
+        }while (!checkId);
         do {
             System.out.println("Enter the employee's name: ");
             employeeName = scanner.nextLine();
@@ -59,12 +85,12 @@ public class EmployeeManagementView {
         do {
             check = false;
             try {
-                System.out.println("Enter the employee's date of birth(dd/MM/yyyy): ");
+                System.out.println("Enter the employee's date of birth(dd/MM/yyyy)(age >= 18): ");
                 dateOfBirth = scanner.nextLine();
                 if (Regex.ageValidate(dateOfBirth)) {
                     check = true;
                 } else {
-                    System.out.println("The employee's age must be greater than 18!");
+                    System.out.println("The customer's age invalid!");
                 }
             } catch (DateTimeParseException e) {
                 System.out.println("The employee's date of birth is invalid, please re-enter");

@@ -1,6 +1,7 @@
 package FuramaResort.view;
 
 import FuramaResort.model.person.Customer;
+import FuramaResort.repository.impl.CustomerRepositoryImpl;
 import FuramaResort.utils.Regex;
 
 import java.time.format.DateTimeParseException;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerManagementView {
+    private final CustomerRepositoryImpl customerRepository= new CustomerRepositoryImpl();
 
     Scanner scanner = new Scanner(System.in);
     public void displayCustomerMenu(){
@@ -29,10 +31,19 @@ public class CustomerManagementView {
             }
         }
     }
+    public boolean checkId(String id) {
+        List<Customer> customerList = customerRepository.getList();
+        for (Customer customer : customerList) {
+            if (customer.getCustomerCode().equals(id)){
+                return  true;
+            }
+        }
+        return false;
+    }
 
     public Customer inputCustomer() {
         List<Customer> customerList = new ArrayList<>();
-        String customerCode;
+        String customerCode = null;
         String customerName;
         String dateOfBirth = null;
         String address;
@@ -42,13 +53,27 @@ public class CustomerManagementView {
         String gender;
         String email;
         boolean check;
+        boolean checkId = false;
         do {
-            System.out.println("Enter the customer code as KH-YYYY: ");
-            customerCode = scanner.nextLine();
-            if (!Regex.customerCodeValidate(customerCode)) {
-                System.out.println("Invalid customer code, please re-enter");
-            }
-        } while (!Regex.customerCodeValidate(customerCode));
+            do {
+                try {
+                    System.out.println("Enter the customer code as KH-YYYY: ");
+                    customerCode = scanner.nextLine();
+                    if (checkId(customerCode)){
+                        throw new Exception();
+                    }else {
+                        checkId = true;
+                    }
+                    if (!Regex.customerCodeValidate(customerCode)) {
+                        System.out.println("Invalid customer code, please re-enter");
+                    }
+                }catch (Exception e){
+                    System.out.println("Id already exists.");
+                    checkId = false;
+                }
+
+            } while (!Regex.customerCodeValidate(customerCode));
+        }while (!checkId);
         do {
             System.out.println("Enter the customer's name: ");
             customerName = scanner.nextLine();
@@ -59,7 +84,7 @@ public class CustomerManagementView {
         do {
             check = false;
             try {
-                System.out.println("Enter the customer's date of birth(dd/MM/yyyy): ");
+                System.out.println("Enter the customer's date of birth(dd/MM/yyyy)(age >= 18): ");
                 dateOfBirth = scanner.nextLine();
                 if (Regex.ageValidate(dateOfBirth)) {
                     check = true;
