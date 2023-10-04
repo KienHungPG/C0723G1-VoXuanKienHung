@@ -1,7 +1,6 @@
 package FuramaResort.controller;
 
 import FuramaResort.model.person.Customer;
-import FuramaResort.model.person.Employee;
 import FuramaResort.service.impl.CustomerServiceImpl;
 import FuramaResort.view.CustomerManagementView;
 
@@ -11,10 +10,11 @@ import java.util.Scanner;
 public class CustomerController {
     private final CustomerManagementView customerManagementView = new CustomerManagementView();
     private final CustomerServiceImpl customerService = new CustomerServiceImpl();
-    int choiceCustomer;
-    Scanner scanner = new Scanner(System.in);
+    private int choiceCustomer;
+
 
     public void runCustomer() {
+        Scanner scanner = new Scanner(System.in);
         do {
             customerManagementView.displayCustomerMenu();
             choiceCustomer = Integer.parseInt(scanner.nextLine());

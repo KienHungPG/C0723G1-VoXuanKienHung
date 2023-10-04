@@ -10,11 +10,12 @@ import java.util.Scanner;
 public class EmployeeController {
     private final EmployeeManagementView employeeManagementView = new EmployeeManagementView();
     private final EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-    int choiceEmployee;
-    Scanner scanner = new Scanner(System.in);
+    private int choiceEmployee;
 
 
     public void runEmployee() {
+        Scanner scanner = new Scanner(System.in);
+
         do {
             employeeManagementView.displayEmployeeMenu();
             choiceEmployee = Integer.parseInt(scanner.nextLine());
