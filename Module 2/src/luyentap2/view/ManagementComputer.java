@@ -83,10 +83,10 @@ public class ManagementComputer {
             case 6:
                 String code = inputComputerCode();
                 List<Computer> computerList = computerController.searchByCode(code);
-                if (computerList.size() == 0){
+                if (computerList.size() == 0) {
                     System.out.println("Not found computer code: " + code);
-                }else {
-                    for (Computer computer1: computerList){
+                } else {
+                    for (Computer computer1 : computerList) {
                         System.out.println(computer1);
                     }
                 }
@@ -219,10 +219,10 @@ public class ManagementComputer {
             if (checkCode(computerCode)) {
                 System.out.println("Computer code is exist. Please re-enter!!!");
             }
-        } while (checkCode(computerCode));
-        computer.setCode(computerCode);
-        inputInformation(computer);
-        return computer;
+            computer.setCode(computerCode);
+            inputInformation(computer);
+        } while (true);
+
     }
 
     public Computer editComputer() {
