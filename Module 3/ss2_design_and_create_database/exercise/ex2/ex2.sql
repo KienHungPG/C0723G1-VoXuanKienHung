@@ -8,7 +8,8 @@ create table customers(
 customer_id int auto_increment,
 customer_name varchar(50) not null,
 customer_age int not null,
-primary key(customer_id)
+primary key(customer_id),
+check (customer_age >= 3 && customer_age < 120)
 );
 
 create table orders(
