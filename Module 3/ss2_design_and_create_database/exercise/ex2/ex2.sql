@@ -16,7 +16,7 @@ create table orders(
 customer_id int,
 order_id int auto_increment,
 order_date datetime not null, 
-order_total_price int not null,
+order_total_price int,
 check (order_total_price >= 0),
 primary key(order_id),
 foreign key (customer_id) references customers(customer_id)
