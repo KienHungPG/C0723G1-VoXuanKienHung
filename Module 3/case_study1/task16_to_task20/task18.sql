@@ -5,11 +5,13 @@ Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng bu
 
 use furama_resort;
 
+create view khach_hang_can_xoa as
+select distinct kh.ma_khach_hang
+from khach_hang kh
+join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
+where year(hd.ngay_lam_hop_dong) < 2021;
+
 delete from khach_hang
-where ma_khach_hang in (
-    select distinct kh.ma_khach_hang
-    from khach_hang kh
-    left join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
-    where year(hd.ngay_lam_hop_dong) < 2021
-);
+where ma_khach_hang in (select ma_khach_hang from khach_hang_can_xoa);
+
 
