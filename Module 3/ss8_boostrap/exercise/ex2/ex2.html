@@ -6,6 +6,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <style>
+        table a{
+            color: gray;
+            text-decoration: none;
+        }
+        .last a{
+            color: gray;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
@@ -64,7 +74,9 @@
                         </ul>
                     </li>
                     <li class="mx-2">Support</li>
-                    <li class="mx-2" style="background-color: #0067b8"><a href="https://www.microsoft.com/en-us/store/b/surface-deals" class="text-decoration-none" style="color: white;">SHOP DEALS</a></li>
+                    <li class="mx-2" style="background-color: #0067b8">
+                        <a href="https://www.microsoft.com/en-us/store/b/surface-deals" class="text-decoration-none" style="color: white;">SHOP DEALS</a>
+                    </li>
                 </ul>
             </div>
             <!---->
@@ -88,8 +100,11 @@
             </div>
         </div>
         <!---->
-        <div class="mb-0" style="background-color: #e6e6e6; text-align: right">
-            <p class="me-5 mb-0" style="padding: 4px">Animation | <i class="fa-solid fa-toggle-on"></i> On</p>
+        <div class="header-link bg-secondary-subtle">
+            <div class="form-check form-switch" style="position: relative; left: 1370px;">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Animation</label>
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+            </div>
         </div>
         <!---->
         <div class="row mt-0 " style="background-color: #F6F5F1;">
@@ -101,6 +116,95 @@
                 <img src="https://media.discordapp.net/attachments/434706393795133440/1166660834534113330/image.png?ex=654b4c92&is=6538d792&hm=83199bbae4f933997427f4206bdab13f71daa8bd596b408405463fb345e5f61d&=&width=693&height=588" style="width: 100%;">
             </div>
         </div>
+        <!---->
+        <div class="container-fluid p-5">
+            <h1 class="mt-4 ms-3">For all the ways you create</h1>
+          
+            <div class="row">
+              <div class="col-2">
+                <div class="row">
+                  <div class="col-3">
+                    <img class="h-100"
+                         src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_Business.jpg?version=abc137e7-fb77-9719-bf47-d424ec2d3614"
+                         alt="">
+                  </div>
+          
+                  <div class="col-9">
+                    <a class="link-primary fw-bold" href="#">Surface for <br>Business ></a>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-2">
+                <div class="row">
+                  <div class="col-3">
+                    <img class="h-100"
+                         src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_Education.jpg?version=1b0c8927-642f-f117-bb6c-ae8afe6469d3"
+                         alt="">
+                  </div>
+          
+                  <div class="col-9">
+                    <a class="link-primary fw-bold" href="#">Surface for <br>Education ></a>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-2">
+                <div class="row">
+                  <div class="col-3">
+                    <img class="h-100"
+                         src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_Compare.jpg?version=3bd1d210-023a-194e-de3b-43199e0c1c8c"
+                         alt="">
+                  </div>
+          
+                  <div class="col-9">
+                    <a class="link-primary fw-bold" href="#">Compare <br>devices ></a>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-2">
+                <div class="row">
+                  <div class="col-3">
+                    <img class="h-100"
+                         src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_HelpMeChoose.jpg?version=8891907f-ff90-1a04-2df1-250a2b11a9d4"
+                         alt="">
+                  </div>
+          
+                  <div class="col-9 my-auto">
+                    <a class="link-primary fw-bold" href="#">Help me choose ></a>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-2">
+                <div class="row">
+                  <div class="col-3">
+                    <img class="h-100"
+                         src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_Deals.jpg?version=0b6d21dd-e2a6-f1e8-cc7f-34a141514d19"
+                         alt="">
+                  </div>
+          
+                  <div class="col-9 my-auto">
+                    <a class="link-primary fw-bold" href="#">Surface deals ></a>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-2">
+                <div class="row">
+                  <div class="col-3">
+                    <img class="h-100"
+                         src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_WhySurface.png?version=026c6a01-80af-1f08-dad1-6de486da3e2e"
+                         alt="">
+                  </div>
+          
+                  <div class="col-9 my-auto">
+                    <a class="link-primary fw-bold" href="#">Why Surface ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
         <!---->
         <h1 class="mt-4 ms-3">Save on Surface deals</h1>
           <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -187,7 +291,7 @@
           </div>
           <div class="row flex-row">
             <div class="col-sm-12 col-lg-6">
-                <video src="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/MSFT_Surface_Home_Surface-Pro-9_Platinum_360-video"></video>
+                <video autoplay loop src="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/MSFT_Surface_Home_Surface-Pro-9_Platinum_360-video"></video>
             </div>
             <div class="col-sm-12 col-lg-6">
                 <div class="row">
@@ -200,23 +304,135 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop" alt="">
+                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Pro-7-plues-three-quarter-view-kickstand-extended-type-cover?fmt=png-alpha&wid=325&hei=240&fit=crop" alt="">
                     </div>
                     <div class="col-sm-6" style="justify-content: center;align-items: center;display: flex;">
-                        <a href="https://www.microsoft.com/en-us/d/surface-pro-9/93vkd8np4fvk?comp=top">Surface Pro 9</a>
+                        <a href="https://www.microsoft.com/en-us/d/surface-pro-7-plus-and-type-cover-bundle/8ntr2b19vr2j?comp=top">Surface Pro 7+</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop" alt="">
+                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/homepage_Surface-Laptop-Studio-2_platinum_render?fmt=png-alpha&wid=325&hei=240&fit=crop" alt="">
                     </div>
                     <div class="col-sm-6" style="justify-content: center;align-items: center;display: flex;">
-                        <a href="https://www.microsoft.com/en-us/d/surface-pro-9/93vkd8np4fvk?comp=top">Surface Pro 9</a>
+                        <a href="https://www.microsoft.com/en-us/d/surface-laptop-studio-2/8rqr54krf1dz">Surface Laptop Studio 2</a>
                     </div>
                 </div>
             </div>
-            
+        <!---->
+        <div class="col-6">
+            <div class="mt-5 mb-4">
+              <span class="h3">All-in-One</span>
+            </div>
+            <div class="card mb-3 shadow container-fluid">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Studio-2-Plus-_Home_DeviceShowcase-poster?fmt=png-alpha&wid=260&hei=292&fit=crop"
+                       class="img-fluid rounded-start" alt="">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <br><br><br><br><a class="link-primary h4">Surface Studio 2 ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
+        <div class="col-6">
+            <div class="mt-5 mb-4">
+              <span class="h3">Need help deciding?</span>
+            </div>
+            <div class="card mb-3 shadow container-fluid">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/homepage_family-asset_color_render?fmt=png-alpha&wid=260&hei=292&fit=crop"
+                       class="img-fluid rounded-start" alt="">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <br><br><br><br><a class="link-primary h4">Let us help you choose a Surface></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="row ps-5 mt-5 pt-5" style="background-color: #E2E3E5">
+            <table class="table table-secondary table-borderless">
+                <tr>
+                    <th>What's new</th>
+                    <th>Microsoft Store</th>
+                    <th>Education</th>
+                    <th>Business</th>
+                    <th>Developer & IT</th>
+                    <th>Company</th>
+                </tr>
+                <tr>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                    <td><a href="">Surface Pro 9</a></td>
+                </tr>
+            </table>
+            <div class="d-flex ps-0 justify-content-between last">
+                <ul class="d-flex ps-0 list-unstyled">
+                    <li><a href="">English (United States)</a></li>
+                    <li class="ms-5"><a href="">Your Privacy Choices</a></li>
+                </ul>
+                <ul class="d-flex list-unstyled">
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                    <li class="px-2"><a href="">Sitemap</a></li>
+                </ul>
+            </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
