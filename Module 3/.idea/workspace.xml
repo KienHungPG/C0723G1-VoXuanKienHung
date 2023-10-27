@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1fcd22d2-f1d7-42a0-9e35-f2bbe53e77ce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/case_study.mwb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/case_study.mwb.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/create_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task1.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task11_to_task15/task11.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task11_to_task15/task12.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task11_to_task15/task13.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task11_to_task15/task14.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task11_to_task15/task15.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task16_to_task20/task16.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task16_to_task20/task17.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task16_to_task20/task18.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task16_to_task20/task19.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task16_to_task20/task20.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task2_to_task5/task2.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task2_to_task5/task3.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task2_to_task5/task4.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task2_to_task5/task5.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task6_to_task10/task10.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task6_to_task10/task6.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task6_to_task10/task7.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task6_to_task10/task8.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study1/task6_to_task10/task9.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss1/Screenshot_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss1/Screenshot_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss2/EERD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss2/part1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss2/part2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss2/part3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss2/thiet_ke_db_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss3/M3-normalization-form.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss3/bảng dữ liệu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss3/execution-in-SQL queries.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss3/part1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss3/part2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss3/part3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss4/part1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss4/part2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss4/part3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss5/part1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss5/part2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss5/part3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss5/part4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss7/c07_css.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss7/danang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss7/demo_c07.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/ss7/demo_media.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise/ex.mwb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise/ex.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss1_relational_database/exercise/e1.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss2_design_and_create_database/exercise/ex1/ex1.mwb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss2_design_and_create_database/exercise/ex1/ex1.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss2_design_and_create_database/exercise/ex2/ex2.mwb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss2_design_and_create_database/exercise/ex2/ex2.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss2_design_and_create_database/practice/p2.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss2_design_and_create_database/practice/p3.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss3_manipulate_database/exercise/ex1.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss3_manipulate_database/exercise/ex2.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss3_manipulate_database/practice/p1.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss4_common_functions_in_SQL/exercise/exercise.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/exercise/ex1/ex1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/exercise/ex1/ex1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/exercise/ex2/ex2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/exercise/ex2/ex2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/exercise/ex3/ex3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/exercise/ex3/ex3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/exercise/ex3/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/practice/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_website_layout_design/exercise/ex3/ex3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_website_layout_design/exercise/ex3/ex3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_website_layout_design/exercise/ex4/ex4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_website_layout_design/exercise/ex4/ex4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_website_layout_design/exercise/ex4/youtube.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2XKVGYj4aVRNrAVqs4alX9JFiV7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "20",
+    "last_opened_file_path": "E:/CG/Module 3"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1fcd22d2-f1d7-42a0-9e35-f2bbe53e77ce" name="Changes" comment="" />
+      <created>1698377665649</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698377665649</updated>
+    </task>
+    <servers />
+  </component>
+</project>
