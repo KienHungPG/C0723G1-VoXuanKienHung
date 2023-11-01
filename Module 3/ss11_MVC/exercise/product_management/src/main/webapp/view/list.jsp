@@ -35,7 +35,7 @@
     </tr>
     <c:forEach var="product" items="${products}">
         <tr>
-            <td><a href="/product?action=view&id=${product.getId()}">${product.getName()}</a></td>
+            <td><a href="/product?action=detail&id=${product.getId()}">${product.getName()}</a></td>
             <td>${product.getPrice()}</td>
             <td>${product.getDescription()}</td>
             <td>${product.getManufacturer()}</td>

@@ -30,6 +30,9 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 showDeleteForm(request, response);
                 break;
+            case "detail":
+                detailProduct(request,response);
+                break;
             case "search":
                 searchProduct(request, response);
             default:
@@ -117,6 +120,9 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 deleteProduct(request, response);
                 break;
+            case "detail":
+                detailProduct(request,response);
+                break;
             case "searchProduct":
                 searchProductName(request, response);
             default:
@@ -185,6 +191,24 @@ public class ProductServlet extends HttpServlet {
         this.productService.addProduct(product);
         try {
             response.sendRedirect("/product?msg=them%20moi%20thanh%20cong");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void detailProduct(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = this.productService.findById(id);
+        RequestDispatcher requestDispatcher;
+        if (product == null) {
+            requestDispatcher = request.getRequestDispatcher("error-404.jsp");
+        } else {
+            request.setAttribute("product", product);
+            requestDispatcher = request.getRequestDispatcher("view/detail.jsp");
+        }
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
