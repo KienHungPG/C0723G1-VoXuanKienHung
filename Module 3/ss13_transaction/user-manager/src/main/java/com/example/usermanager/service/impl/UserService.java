@@ -5,73 +5,59 @@ import com.example.usermanager.repository.IUserRepository;
 import com.example.usermanager.repository.impl.UserRepository;
 import com.example.usermanager.service.IUserService;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserService implements IUserService {
-    private final IUserRepository userRepository = new UserRepository();
+    private static final IUserRepository userRepository = new UserRepository();
 
     @Override
-    public List<User> displayUserList() {
-        return userRepository.displayUserList();
+    public void insertUser(User user) throws SQLException {
+        userRepository.insertUser(user);
     }
 
     @Override
-    public void createUser(User user) {
-        userRepository.createUser(user);
+    public void insertUserSp(User user) throws SQLException {
+        userRepository.insertUserSp(user);
     }
 
     @Override
-    public void editUser(int id, User user) {
-        userRepository.editUser(id, user);
+    public User selectUser(int id) {
+        return userRepository.selectUser(id);
     }
 
     @Override
-    public User findById(int id) {
-        return userRepository.findById(id);
+    public List<User> selectAllUsers() {
+        return userRepository.selectAllUsers();
     }
 
     @Override
-    public void deleteUser(int id) {
-        userRepository.deleteUser(id);
+    public boolean deleteUser(int id) throws SQLException {
+        return userRepository.deleteUser(id);
     }
 
     @Override
-    public List<User> findByCountry(String country) {
-        return userRepository.findByCountry(country);
+    public boolean updateUser(User user) throws SQLException {
+        return userRepository.updateUser(user);
     }
 
     @Override
-    public User getUserById(int id) {
-        return userRepository.getUserById(id);
+    public List<User> sortUserByName() throws SQLException {
+        return userRepository.sortUserByName();
     }
 
     @Override
-    public void insertUserStore(User user) {
-        userRepository.insertUserStore(user);
+    public List<User> searchByCountry(String country) throws SQLException {
+        return userRepository.searchByCountry(country);
     }
 
     @Override
-    public List<User> displayUserProcedure() {
-        return userRepository.displayUserProcedure();
+    public User selectUserByIdSp(int id) throws SQLException {
+        return userRepository.selectUserByIdSp(id);
     }
 
     @Override
-    public void editUserProcedure(int id, User user) {
-        userRepository.editUserProcedure(id, user);
-    }
-
-    @Override
-    public void deleteUserProcedure(int id) {
-        userRepository.deleteUserProcedure(id);
-    }
-
-    @Override
-    public void addUserTransaction(User user, List<Integer> permissions) {
+    public void addUserTransaction(User user, List<Integer> permissions) throws SQLException {
         userRepository.addUserTransaction(user, permissions);
-    }
-
-    @Override
-    public void insertUpdateUseTransaction() {
-        userRepository.insertUpdateUseTransaction();
     }
 }

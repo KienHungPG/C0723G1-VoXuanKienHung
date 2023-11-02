@@ -4,165 +4,63 @@ import com.example.usermanager.model.User;
 import com.example.usermanager.repository.BaseRepository;
 import com.example.usermanager.repository.IUserRepository;
 
-import java.math.BigDecimal;
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository implements IUserRepository {
-    private static final String INSERT = "insert into users (name, email, country) values (?, ?, ?);";
-    private static final String SELECT_USER_BY_ID = "select id,name,email,country from users where id =?;";
-    private static final String SELECT = "select * from users order by name";
-    private static final String DELETE = "delete from users where id = ?;";
-    private static final String EDIT = "update users set name = ?,email= ?, country =? where id = ?;";
-    private static final String FIND_BY_COUNTRY = "select name, email, country from users where country like ?;";
-    private static final String FIND_BY_ID = "select id, name, email, country from users where id = ?;";
-
-    private static final String QUERY = "{CALL get_user_by_id(?)}";
-
-    private static final String OTHER_QUERY = "{CALL insert_user(?, ?, ?)}";
-
-    private static final String DISPLAY_PROCEDURE = "{CALL display_user()}";
-
-    private static final String EDIT_PROCEDURE = "{CALL edit_user(?,?,?,?)}";
-
-    private static final String DELETE_PROCEDURE = "{CALL delete_user(?)}";
-
-
-    private static final String INSERT_TRAN = "INSERT INTO Employee (`name`, salary, created_date)\n" +
-            "VALUES (?,?,?)";
-
-    private static final String UPDATE_TRAN = "UPDATE Employee SET salary=? WHERE `name`=?";
-
-    private static final String TABLE_CREATE = "CREATE TABLE Employee";
-
-    private static final String TABLE_DROP = "DROP TABLE IF EXISTS Employee";
-
-    private static final String sqlPivot = "INSERT INTO user_permission(user_id, permission_id)\n"
-            + "VALUES(?,?)";
-
+    private static final String INSERT_USERS_SQL = "INSERT INTO users (name, email, country) VALUES (?, ?, ?);";
+    private static final String SELECT_USER_BY_ID = "select id,name,email,country from users where id =?";
+    private static final String SELECT_ALL_USERS = "select * from users";
+    private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
+    private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
+    private static final String SORT_USERS_BY_NAME = "select id, name, email, country \n" +
+            "from users\n" +
+            "order by name;";
+    private  static final String SEARCH_USERS_BY_COUNTRY = "select id, name, email, country\n" +
+            "from users\n" +
+            "where country like ?";
+    private static final String SELECT_USER_BY_ID_SP ="call find_user_by_id(?)";
+    private static final String INSERT_USER_SQL_SP = "call insert_user_sp(?, ?, ?)";
+    private static final String SELECT_ALL_USERS_SP = "call select_all_users_sp();";
+    private static final String DELETE_USER_SP = "call delete_user_sp(?);";
+    private static final String UPDATE_USER_SP = "call update_user_sp(?, ?, ?, ?)";
     @Override
-    public List<User> displayUserList() {
+    public void insertUser(User user){
         Connection connection = BaseRepository.getConnection();
-        List<User> userList = new ArrayList<>();
-        User user;
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SELECT);
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                String email = resultSet.getString("email");
-                String country = resultSet.getString("country");
-                user = new User(id, name, email, country);
-                userList.add(user);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return userList;
-    }
 
-    public List<User> displayUserProcedure() {
-        Connection connection = BaseRepository.getConnection();
-        List<User> userList = new ArrayList<>();
-        User user;
         try {
-            CallableStatement callableStatement = connection.prepareCall(DISPLAY_PROCEDURE);
-            ResultSet resultSet = callableStatement.executeQuery();
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                String email = resultSet.getString("email");
-                String country = resultSet.getString("country");
-                user = new User(id, name, email, country);
-                userList.add(user);
-            }
+            PreparedStatement pr = connection.prepareStatement(INSERT_USERS_SQL );
+            pr.setString(1, user.getName());
+            pr.setString(2, user.getEmail());
+            pr.setString(3, user.getCountry());
+            pr.executeUpdate();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
-        return userList;
+
     }
 
     @Override
-    public void createUser(User user) {
+    public void insertUserSp(User user) throws SQLException {
         Connection connection = BaseRepository.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getCountry());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        CallableStatement call = connection.prepareCall(INSERT_USER_SQL_SP);
+        call.setString(1, user.getName());
+        call.setString(2, user.getEmail());
+        call.setString(3, user.getCountry());
+        call.executeUpdate();
     }
 
     @Override
-    public void insertUserStore(User user) {
-        Connection connection = BaseRepository.getConnection();
-        try {
-            CallableStatement callableStatement = connection.prepareCall(OTHER_QUERY);
-            callableStatement.setString(1, user.getName());
-            callableStatement.setString(2, user.getEmail());
-            callableStatement.setString(3, user.getCountry());
-            callableStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public void editUser(int id, User user) {
-        Connection connection = BaseRepository.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(EDIT);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getCountry());
-            preparedStatement.setInt(4, user.getId());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void editUserProcedure(int id, User user) {
-        Connection connection = BaseRepository.getConnection();
-        try {
-            CallableStatement callableStatement = connection.prepareCall(EDIT_PROCEDURE);
-            callableStatement.setString(1, user.getName());
-            callableStatement.setString(2, user.getEmail());
-            callableStatement.setString(3, user.getCountry());
-            callableStatement.setInt(4, user.getId());
-            callableStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public User findById(int id) {
+    public User selectUser(int id) {
         Connection connection = BaseRepository.getConnection();
         User user = null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_ID);
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
+            PreparedStatement pr = connection.prepareStatement(SELECT_USER_BY_ID);
+            pr.setInt(1,id);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
                 String name = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 String country = resultSet.getString("country");
@@ -173,37 +71,117 @@ public class UserRepository implements IUserRepository {
         }
         return user;
     }
-
     @Override
-    public void deleteUser(int id) {
+    public User selectUserByIdSp(int id) throws SQLException {
         Connection connection = BaseRepository.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        User user = null;
+        CallableStatement callableStatement = connection.prepareCall(SELECT_USER_BY_ID_SP);
+        callableStatement.setInt(1, id);
+        ResultSet resultSet = callableStatement.executeQuery();
+        while (resultSet.next()) {
+            String name = resultSet.getString("name");
+            String email = resultSet.getString("email");
+            String country = resultSet.getString("country");
+            user = new User(name, email, country);
         }
+        return user;
     }
-
     @Override
-    public void deleteUserProcedure(int id) {
+    public List<User> selectAllUsers() {
         Connection connection = BaseRepository.getConnection();
-        try {
-            CallableStatement callableStatement = connection.prepareCall(DELETE_PROCEDURE);
-            callableStatement.setInt(1, id);
-            callableStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public List<User> findByCountry(String country) {
         List<User> userList = new ArrayList<>();
-        Connection connection = BaseRepository.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_COUNTRY);
+//            Statement statement = connection.createStatement();
+//            ResultSet resultSet = statement.executeQuery(SELECT_ALL_USERS);
+            CallableStatement call = connection.prepareCall(SELECT_ALL_USERS_SP);
+            ResultSet resultSet = call.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String country = resultSet.getString("country");
+                User user = new User(id, name, email, country);
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return userList;
+    }
+
+    @Override
+    public boolean deleteUser(int id)  {
+        Connection connection = BaseRepository.getConnection();
+        boolean rowDelete;
+        try {
+//            PreparedStatement pr = connection.prepareStatement(DELETE_USERS_SQL );
+//            pr.setInt(1,id);
+            CallableStatement callableStatement = connection.prepareCall(DELETE_USER_SP);
+            callableStatement.setInt(1, id);
+            rowDelete = callableStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowDelete;
+    }
+
+    @Override
+    public boolean updateUser(User user) {
+        Connection connection = BaseRepository.getConnection();
+        boolean rowUpdate;
+        try {
+//            PreparedStatement pr = connection.prepareStatement(UPDATE_USERS_SQL);
+//            pr.setString(1,user.getName());
+//            pr.setString(2, user.getEmail());
+//            pr.setString(3, user.getCountry());
+//            pr.setInt(4, user.getId());
+//            rowUpdate = pr.executeUpdate() > 0;
+            CallableStatement callableStatement = connection.prepareCall(UPDATE_USER_SP);
+            callableStatement.setInt(1,user.getId());
+            callableStatement.setString(2, user.getName());
+            callableStatement.setString(3, user.getEmail());
+            callableStatement.setString(4, user.getCountry());
+            rowUpdate = callableStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowUpdate;
+    }
+
+    @Override
+    public List<User> sortUserByName() {
+        Connection connection = BaseRepository.getConnection();
+        List<User> userList = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SORT_USERS_BY_NAME);
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String country = resultSet.getString("country");
+                User user = new User(id, name, email, country);
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return userList;
+
+    }
+
+    @Override
+    public List<User> searchByCountry(String country) {
+        Connection connection = BaseRepository.getConnection();
+        List<User> userList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_USERS_BY_COUNTRY);
             String findCountry = "%" + country + "%";
             preparedStatement.setString(1, findCountry);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -229,115 +207,71 @@ public class UserRepository implements IUserRepository {
 
     }
 
-    @Override
-    public User getUserById(int id) {
-        Connection connection = BaseRepository.getConnection();
-        User user = null;
-        try {
-            CallableStatement callableStatement = connection.prepareCall(QUERY);
-            callableStatement.setInt(1, id);
-            ResultSet resultSet = callableStatement.executeQuery();
-            while (resultSet.next()) {
-                String name = resultSet.getString("name");
-                String email = resultSet.getString("email");
-                String country = resultSet.getString("country");
-                user = new User(id, name, email, country);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return user;
-    }
 
 
     @Override
     public void addUserTransaction(User user, List<Integer> permissions) {
-        Connection connection = BaseRepository.getConnection();
-        PreparedStatement preparedStatement = null;
+        Connection conn = null;
+        PreparedStatement pr = null;
         PreparedStatement prAssignment = null;
-        ResultSet resultSet = null;
+        ResultSet rs = null;
+        conn = BaseRepository.getConnection();
         try {
-            connection.setAutoCommit(false);
-
-            preparedStatement = connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getCountry());
-            int rowAffected = preparedStatement.executeUpdate();
-
-            resultSet = preparedStatement.getGeneratedKeys();
-
+            conn.setAutoCommit(false);
+            pr = conn.prepareStatement(INSERT_USERS_SQL, Statement.RETURN_GENERATED_KEYS);
+            pr.setString(1, user.getName());
+            pr.setString(2, user.getEmail());
+            pr.setString(3, user.getCountry());
+            int rowAffected = pr.executeUpdate();
             int userId = 0;
-            if (resultSet.next()) {
-                userId = resultSet.getInt(1);
-            }
-
             if (rowAffected == 1) {
-                prAssignment = connection.prepareStatement(sqlPivot);
-
-                for (int permissionId : permissions) {
-                    prAssignment.setInt(1, userId);
-                    prAssignment.setInt(1, permissionId);
-                    prAssignment.executeUpdate();
+                rs = pr.getGeneratedKeys();
+                if (rs.next()) {
+                    userId = rs.getInt(1);
                 }
-                connection.commit();
-            } else {
-                connection.rollback();
+            }
+            if (userId == 0) {
+                throw new RuntimeException("Insert new user failed");
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+//            rs = pr.getGeneratedKeys();
+
+//            int userId = 0;
+//            if(rs.next()) {
+//                userId = rs.getInt(1);
+//            }
+            String sqlPivot = "insert into user_permission(user_id , permission_id)" + "values(?,?)";
+            prAssignment = conn.prepareStatement(sqlPivot);
+
+            for(int permissionId : permissions) {
+                prAssignment.setInt(1, userId);
+                prAssignment.setInt(2, permissionId);
+//                if (permissionId == 2) {
+//                    throw new RuntimeException("TEST");
+//                }
+                prAssignment.executeUpdate();
+            }
+            conn.commit();
+        } catch (Exception e) {
             try {
-                if (connection != null) {
-                    connection.rollback();
+                if (conn != null) {
+                    conn.rollback();
                 }
             } catch (SQLException ex) {
-                System.out.println(ex.getMessage());;
+                throw new RuntimeException(ex);
             }
-            System.out.println(e.getMessage());
-        }  finally {
-            try {
-                if (resultSet != null) resultSet.close();
-                if (preparedStatement != null) preparedStatement.close();
-                if (prAssignment != null) prAssignment.close();
-                if (connection != null) connection.close();
-            } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try{
+                if(rs != null) {rs.close();}
+                if(pr != null) {pr.close();}
+                if(prAssignment != null) {prAssignment.close();}
+                if(conn != null) {conn.close();}
+            }catch (SQLException e){
                 System.out.println(e.getMessage());
             }
         }
 
     }
 
-    @Override
-    public void insertUpdateUseTransaction() {
-        Connection connection = BaseRepository.getConnection();
-        try {
-            Statement statement = connection.createStatement();
-            PreparedStatement prInsert = connection.prepareStatement(INSERT_TRAN);
-            PreparedStatement prUpdate = connection.prepareStatement(UPDATE_TRAN);
-            statement.execute(TABLE_DROP);
-            statement.execute(TABLE_CREATE);
-
-            connection.setAutoCommit(false);
-            prInsert.setString(1, "loan");
-            prInsert.setBigDecimal(2, new BigDecimal(10));
-            prInsert.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
-            prInsert.execute();
-
-            prUpdate.setBigDecimal(2, new BigDecimal(999.99));
-            prUpdate.setString(2, "Lona");
-            prUpdate.execute();
-
-            connection.commit();
-            connection.setAutoCommit(true);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            try {
-                connection.rollback();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
-        }
-    }
 }

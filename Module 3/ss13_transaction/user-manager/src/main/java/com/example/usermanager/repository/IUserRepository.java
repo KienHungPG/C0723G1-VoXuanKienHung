@@ -2,32 +2,22 @@ package com.example.usermanager.repository;
 
 import com.example.usermanager.model.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface IUserRepository {
-    List<User> displayUserList();
+    void insertUser(User user) throws SQLException;
+    void insertUserSp(User user) throws SQLException;
 
-    void createUser (User user);
+    User selectUser(int id);
 
-    void editUser (int id, User user);
+    List<User> selectAllUsers();
 
-    User findById (int id);
+    boolean deleteUser(int id) throws SQLException;
 
-    void deleteUser (int id);
-
-    List<User> findByCountry (String country);
-
-    User getUserById (int id);
-
-    void insertUserStore (User user);
-
-    List<User> displayUserProcedure();
-
-    void editUserProcedure(int id, User user);
-
-    void deleteUserProcedure(int id);
-
-    void addUserTransaction(User user, List<Integer> permissions);
-
-    void insertUpdateUseTransaction();
+    boolean updateUser(User user) throws SQLException;
+    List<User>  sortUserByName() throws SQLException;
+    List<User> searchByCountry(String country) throws SQLException;
+    User selectUserByIdSp(int id) throws SQLException;
+    void addUserTransaction(User user, List<Integer> permissions) throws SQLException;
 }
